@@ -1,6 +1,71 @@
 body {
   background-image: url("music-retro-turntable-96857.jpg");
-   height: 800px;
+   height: 500px;
   background-size:cover;
    }
 
+
+#top{
+  padding:200px 80px 80px 0px;
+  position:relative;
+}
+
+#top h1{
+  text-align:center;
+  font-size:45px;
+  opacity:0.7;
+  position:absolute;
+  top:100px;
+  width:100%;
+}
+
+#top p{
+  font-size:10px;
+  text-align:center;
+  opacity:0.7;
+  position:absolute;
+  top:170px;
+  width:100%;
+  color:darkred;
+  font-weight:bold;
+}
+
+
+#sample{
+  text-align:center;
+}
+
+#top a{
+  text-align:center;
+  position:absolute;
+  top:100px;
+  opacity:0.8;
+}
+
+
+.btn-push {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #ff7c5c;/*左線*/
+  color: #ff7c5c;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+.btn-push:hover {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+
+
+footer{
+  margin-top:740px;
+  position:relative;
+}
+
+footer p{
+  position:absolute;
+  width:100%;
+}
