@@ -17,4 +17,6 @@ before_save { self.email.downcase! }
   validates :icon, presence: true, length: { maximum: 255}, on: :update
   
   has_secure_password
+  
+  #mount_uploader :icon, ImageUploader
 end

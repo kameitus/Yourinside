@@ -10,15 +10,15 @@
           <ul class="navbar-nav ml-auto">
             
             <!--共通表示メニュー-->
-            <li class="nav-item"><a class="nav-link" href="">インタビュー検索</a></li>
+            <li class="nav-item"><%= link_to "インタビュー検索",mypage_path,class: "nav-link" %></li>
             
             <!--ログアウト時メニュー-->
-            <li class="nav-item"><a class="nav-link" href="">ログイン</a></li>
-            <li class="nav-item"><a class="nav-link" href="">新規登録</a></li>
+            <li class="nav-item"><%= link_to "ログイン",root_path,class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "新規登録",signup_path,class: "nav-link" %></li>
             
             <!--ログイン時メニュー-->
-            <li class="nav-item"><a class="nav-link" href="">Myページ</a></li>
-            <li class="nav-item"><a class="nav-link" href="">ログアウト</a></li>
+            <li class="nav-item"><%= link_to "Myページ",mypage_path,class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "ログアウト",root_path,class: "nav-link" %></li>
             
           </ul>
         </div>

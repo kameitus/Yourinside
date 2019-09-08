@@ -1,0 +1,11 @@
+<%= form_for(@user) do |f| %>
+   <% if @user.icon? %>
+      <%= image_tag @user.icon.url %>
+   <% else %>
+      <%= image_tag "/assets/default.jpg", :size => '100x100' %>
+   <% end %>
+      <button type="button" class="btn btn-outline-secondary rounded-pill">
+         <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
+      </button>
+　　<%= f.submit 'upload', class: 'btn btn-primary' %>
+<% end %>
