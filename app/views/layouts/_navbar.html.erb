@@ -9,16 +9,18 @@
         <div class="collapse navbar-collapse " id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             
+            
             <!--共通表示メニュー-->
             <li class="nav-item"><%= link_to "インタビュー検索",mypage_path,class: "nav-link" %></li>
-            
-            <!--ログアウト時メニュー-->
-            <li class="nav-item"><%= link_to "ログイン",root_path,class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "新規登録",signup_path,class: "nav-link" %></li>
-            
-            <!--ログイン時メニュー-->
+          <% if logged_in? %>
+          <!--ログイン時メニュー-->
             <li class="nav-item"><%= link_to "Myページ",mypage_path,class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "ログアウト",root_path,class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "ログアウト",logout_path,class: "nav-link" %></li>
+          <% else %>
+            <!--ログアウト時メニュー-->
+            <li class="nav-item"><%= link_to "ログイン",login_path,class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "新規登録",signup_path,class: "nav-link" %></li>
+          <% end %>
             
           </ul>
         </div>
