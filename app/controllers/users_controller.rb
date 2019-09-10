@@ -9,7 +9,7 @@ before_action :require_user_logged_in, only:[:show,:edit,:update,:destroy]
   
 #マイページ
   def show
-   @user = User.find(params[:id])
+   @user = User.find_by(params[:id])
   end
   
 #新規登録画面

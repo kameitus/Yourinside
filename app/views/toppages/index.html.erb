@@ -10,16 +10,16 @@
 
 
 <div class="row justify-content-center">
-  <a href="/" class="sample_button">サンプル・インタビュー</a> 
+  <span class="sample_button"><%= link_to "まずはサンプルをチェック！", login_path,class: "text-dark" %></span>
 </div>
 
 
 <div class="row justify-content-around">
   <div class="col-sm-3">
-   <a href="/" class="login_button">インタビュー作成は</br>ログインしてください</a>
+   <span class="login_button"><%= link_to raw("インタビュー作成は<br/>ログインしてください"), login_path,class: "text-dark" %></span>
   </div>
   <div class="col-sm-3">
-   <a href="/" class="search_button">インタビュー検索へ</br>(ログイン不要)</a>
+   <span class="search_button"><%= link_to raw("インタビュー検索へ<br/>(登録不要)"), login_path,class: "text-dark" %></span>
   </div>
 </div>
 
