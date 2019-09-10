@@ -11,11 +11,11 @@
             
             
             <!--共通表示メニュー-->
-            <li class="nav-item"><%= link_to "インタビュー検索",mypage_path,class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "インタビュー検索",root_path,class: "nav-link" %></li>
           <% if logged_in? %>
           <!--ログイン時メニュー-->
             <li class="nav-item"><%= link_to "Myページ",mypage_path,class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "ログアウト",logout_path,class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "ログアウト",logout_path, method: :delete,class: "nav-link" %></li>
           <% else %>
             <!--ログアウト時メニュー-->
             <li class="nav-item"><%= link_to "ログイン",login_path,class: "nav-link" %></li>

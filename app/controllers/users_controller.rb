@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :require_user_logged_in, only:[:show,:edit,:update,:destroy]
 
 #検索一覧（条件ヒットに限る）
   def index
@@ -18,9 +19,9 @@ class UsersController < ApplicationController
 #新規登録実行
   def create
   @user = User.new(user_params)
-  
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
+      session[:user_id] = @user.id
       redirect_to @user
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
