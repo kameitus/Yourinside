@@ -7,7 +7,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
    @users = User.order(id: :desc).page(params[:page]).per(25)
   end
   
-#マイページ(編集可能)
+#マイページ(プロフィール表示)
   def show
    @user = current_user
   end
@@ -30,6 +30,10 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
     end
   end
   
+#プロフィール変更ページ  
+  def edit
+     @user = User.find(params[:id])
+  end
   
 #プロフィール更新実行
   def update

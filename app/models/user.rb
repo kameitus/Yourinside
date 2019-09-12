@@ -14,7 +14,6 @@ before_save { self.email.downcase! }
   validates :category, presence: true, length: { maximum: 255}, on: :update
   validates :sns_1,  length: { maximum: 255}, on: :update
   validates :sns_2,  length: { maximum: 255}, on: :update
-  validates :icon, length: { maximum: 1000}, on: :update
   
   has_secure_password
   

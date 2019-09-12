@@ -1,27 +1,33 @@
-<p class="pt-3 mb-5">
-  <strong><%= @user.name %></strong>
-</p>
-
-<%= form_for(@user) do |f| %>
- <%= render 'layouts/error_messages', model: f.object %>
- <div class="field">
-   <% if @user.icon? %>
-    <div class="thumbnail">
-      <%= image_tag @user.icon.url %>
+<div class="row justify-content-around pt-5">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        <strong><%= @user.name %></strong>
+      </div>
+      <div class="card-body">
+        <%= image_tag @user.icon.url %>
+      </div>    
     </div>
-   <% end %><br>
-   <%= f.file_field :icon %>
-   <%= f.hidden_field :icon_cache %>
- </div>
- <div class="field">
-   <% if @user.persisted? && @user.icon? %>
-    <label>
-      <%= f.check_box :remove_icon %>
-      画像を削除
-    </label>
-   <% end %>
-   <div class="actions mt-2">
-     <%= f.submit "プロフィール画像更新"%>
-   </div>
- </div>
-<% end %>
+  </div>
+    <div class="col-sm-3">
+      <table class="table table-sm table-bordered table-light">
+        <tr><td>[地域]  <%= @user.area %></td></tr>
+        <tr><td>[年齢]  <%= @user.age %></td></tr>
+        <tr><td>[性別]  <%= @user.gender %></td></tr>
+        <tr><td>[担当]  <%= @user.part %></td></tr>
+        <tr><td>[ジャンル]  <%= @user.category %></td></tr>
+      </table>
+      <div class="row"> 
+        <p><%= link_to"SNSリンク1",@user.sns_1, class: "btn btn-primary ml-3" %></p>
+        <p><%= link_to"SNSリンク2",@user.sns_2, class: "btn btn-success ml-3" %></P>
+      </div> 
+    </div>
+    
+    <div class="col-sm-3">
+      <p><%= link_to "プロフィール編集へ",edit_user_path(@user), class: "btn btn-warning pt-4 pb-4" %></p>
+      <p><%= link_to "インタビュー作成へ",root_path, class: "btn btn-info pt-4 pb-4" %></p>
+    </div>
+    <div class="col-sm-2">
+      <p><%= link_to "退会する",root_path, class: "btn btn-danger " %></p>
+    </div>
+</div>

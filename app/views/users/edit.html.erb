@@ -1,0 +1,23 @@
+<%= form_for(@user) do |f| %>
+ <%= render 'layouts/error_messages', model: f.object %>
+ <div class="field">
+   <% if @user.icon? %>
+    <div class="thumbnail">
+      <%= image_tag @user.icon.url %>
+    </div>
+   <% end %><br>
+   <%= f.file_field :icon %>
+   <%= f.hidden_field :icon_cache %>
+ </div>
+ <div class="field">
+   <% if @user.persisted? && @user.icon? %>
+    <label>
+      <%= f.check_box :remove_icon %>
+      画像を削除
+    </label>
+   <% end %>
+   <div class="actions mt-2">
+     <%= f.submit "プロフィール画像更新"%>
+   </div>
+ </div>
+<% end %>
