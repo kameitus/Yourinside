@@ -12,11 +12,11 @@ before_save { self.email.downcase! }
   validates :area, presence: true, length: { maximum: 255}, on: :update
   validates :part, presence: true, length: { maximum: 255}, on: :update
   validates :category, presence: true, length: { maximum: 255}, on: :update
-  validates :sns_1, presence: true, length: { maximum: 255}, on: :update
-  validates :sns_2, presence: true, length: { maximum: 255}, on: :update
-  validates :icon, presence: true, length: { maximum: 255}, on: :update
+  validates :sns_1,  length: { maximum: 255}, on: :update
+  validates :sns_2,  length: { maximum: 255}, on: :update
+  validates :icon, length: { maximum: 255}, on: :update
   
   has_secure_password
   
-  #mount_uploader :icon, ImageUploader
+  mount_uploader :icon, IconUploader
 end

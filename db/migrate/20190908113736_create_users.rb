@@ -14,6 +14,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :icon
 
       t.timestamps
-    end
+  end
   end
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :require_user_logged_in, only:[:show,:edit,:update,:destroy]
+before_action :require_user_logged_in, only:[:show,:update,:destroy]
 
 
 #検索一覧（条件ヒットに限る）
@@ -7,7 +7,7 @@ before_action :require_user_logged_in, only:[:show,:edit,:update,:destroy]
    @users = User.order(id: :desc).page(params[:page]).per(25)
   end
   
-#マイページ
+#マイページ(編集可能)
   def show
    @user = current_user
   end
@@ -30,12 +30,15 @@ before_action :require_user_logged_in, only:[:show,:edit,:update,:destroy]
     end
   end
   
-#マイページの編集
-  def edit
-  end
   
 #プロフィール更新実行
   def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to mypage_url, notice: "success"
+    else
+      render :show
+    end
   end
   
 #退会処理
@@ -46,5 +49,5 @@ end
 private
 
 def user_params
- params.require(:user).permit(:name, :email, :password, :password_confirmation)
+ params.require(:user).permit(:name, :email, :password, :password_confirmation,:icon, :icon_cache, :remove_icon)
 end
