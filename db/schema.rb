@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_125314) do
+ActiveRecord::Schema.define(version: 2019_09_14_143254) do
+
+  create_table "interviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "answer_1"
+    t.text "answer_2"
+    t.text "answer_3"
+    t.text "answer_4"
+    t.text "answer_5"
+    t.text "answer_6"
+    t.text "answer_7"
+    t.text "answer_8"
+    t.text "answer_9"
+    t.text "gakki"
+    t.text "item"
+    t.text "photo"
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_interviews_on_user_id"
+  end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -36,5 +56,6 @@ ActiveRecord::Schema.define(version: 2019_09_14_125314) do
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
   end
 
+  add_foreign_key "interviews", "users"
   add_foreign_key "users", "prefectures"
 end
