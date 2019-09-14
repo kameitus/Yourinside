@@ -28,7 +28,7 @@
         <%= f.text_field :name %></li>
         
     <li><%= f.label :area, "地域", class:"text-danger" %>
-        <%= f.select :area,{"0":"0"} %></li>
+        <%= f.collection_select :area,Prefecture.all,:name, :name %></li>
         
     <li><%= f.label :age, "年齢", class:"text-danger" %>
         <%= f.select :age,{

@@ -18,4 +18,6 @@ before_save { self.email.downcase! }
   has_secure_password
   
   mount_uploader :icon, IconUploader
+  
+  belongs_to :prefecture, optional: true
 end
