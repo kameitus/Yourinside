@@ -20,11 +20,21 @@
     </label>
    <% end %>
  </div>
- <%= f.label :name, "名前" %>
- <%= f.text_field :name %>
- <%= f.label :area, "地域" %>
- <%= f.text_field :area %>
+ <ul>
+ <li style="list-style:none;"><%= f.label :name, "名前", class:"text-danger" %></li>
+ <li style="list-style:none;"><%= f.text_field :name %></li>
+ <li style="list-style:none;"><%= f.label :area, "地域", class:"text-danger" %></li>
+ <li style="list-style:none;"><%= f.text_field :area%></li>
+  <li style="list-style:none;"><%= f.label :age, "年齢", class:"text-danger" %></li>
+ <li style="list-style:none;"><%= f.text_field :age %></li>
+ <li style="list-style:none;"><%= f.label :gender, "性別", class:"text-danger" %></li>
+ <li style="list-style:none;"><%= f.text_field :gender %></li>
+ <li style="list-style:none;"><%= f.label :part, "担当", class:"text-danger" %></li>
+ <li style="list-style:none;"><%= f.text_field :part %></li>
+ <li style="list-style:none;"><%= f.label :category, "ジャンル", class:"text-danger" %></li>
+ <li style="list-style:none;"><%= f.text_field :category %></li>
  <div class="actions mt-2">
      <%= f.submit "プロフィール更新"%>
  </div>
+ </ul>
 <% end %>

@@ -20,7 +20,7 @@ class IconUploader < CarrierWave::Uploader::Base
       "default.png"
     #"/images/fallback/" + [version_name, "default.png"].compact.join('_')
    end
-  process resize_to_fill: [200, 200, "Center"]
+  process resize_to_fill: [250, 200, "Center"]
   #process :resize_to_limit => [300, 300]
 
   # Process files as they are uploaded:
