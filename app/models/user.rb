@@ -20,4 +20,6 @@ before_save { self.email.downcase! }
   mount_uploader :icon, IconUploader
   
   belongs_to :prefecture, optional: true
+  
+  has_one :interview
 end
