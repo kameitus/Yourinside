@@ -32,7 +32,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
   
 #プロフィール変更ページ  
   def edit
-     @user = User.find(params[:id])
+     @user = current_user
   end
   
 #プロフィール更新実行

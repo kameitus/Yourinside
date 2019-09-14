@@ -1,11 +1,14 @@
+<h1 class="pt-5"><%= @user.name %>のプロフィール編集ページ</h1>
+
+
 <%= form_for(@user) do |f| %>
- <%= render 'layouts/error_messages', model: f.object %>
  <div class="field">
    <% if @user.icon? %>
     <div class="thumbnail">
       <%= image_tag @user.icon.url %>
     </div>
    <% end %><br>
+   <%= f.label :icon, "プロフィール画像" %>
    <%= f.file_field :icon %>
    <%= f.hidden_field :icon_cache %>
  </div>
@@ -16,8 +19,12 @@
       画像を削除
     </label>
    <% end %>
-   <div class="actions mt-2">
-     <%= f.submit "プロフィール画像更新"%>
-   </div>
+ </div>
+ <%= f.label :name, "名前" %>
+ <%= f.text_field :name %>
+ <%= f.label :area, "地域" %>
+ <%= f.text_field :area %>
+ <div class="actions mt-2">
+     <%= f.submit "プロフィール更新"%>
  </div>
 <% end %>

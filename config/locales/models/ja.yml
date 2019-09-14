@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        mail: メールアドレス
+        password_digest: パスワード
+        age: 年齢
+        gender: 性別
+        area: 地域
+        part: 担当パート
+        category: ジャンル
+        sns_1: SNSのリンク
+        sns_2: SNSのリンク
+        icon: プロフィール画像
