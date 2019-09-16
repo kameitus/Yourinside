@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_143254) do
+ActiveRecord::Schema.define(version: 2019_09_16_123713) do
 
   create_table "interviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "answer_1"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_143254) do
     t.text "gakki"
     t.text "item"
     t.text "photo"
-    t.string "title"
+    t.text "title"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

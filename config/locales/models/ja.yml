@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      interview: インタビュー
     attributes:
       user:
         name: 名前
@@ -15,3 +16,15 @@ ja:
         sns_1: SNSのリンク
         sns_2: SNSのリンク
         icon: プロフィール画像
+        
+      interview:
+         answer_1: アンサー1
+         answer_2: アンサー2　
+         answer_3: アンサー3
+         answer_4: アンサー4
+         answer_5: アンサー5
+         answer_6: アンサー6
+         answer_7: アンサー7
+         answer_8: アンサー8
+         answer_9: アンサー9
+         title: インタビュー見出し

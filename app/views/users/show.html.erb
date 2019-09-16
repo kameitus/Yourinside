@@ -23,7 +23,7 @@
     <% end %>
     </div> 
     <p><%= link_to "プロフィール編集へ",edit_user_path(@user), class: "btn btn-warning " %></p>
-    <p><%= link_to "インタビュー作成へ",root_path, class: "btn btn-info " %></p>
+    <p><%= link_to "インタビュー作成へ",new_interview_path(@user), class: "btn btn-info " %></p>
     <p><%= link_to "ユーザー削除",root_path, class: "btn btn-danger  float-right" %></p>
   </div>
     <div class="mt-5 col-sm-7 offset-sm-1">

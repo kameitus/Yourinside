@@ -1,1 +1,107 @@
-<%= render "interviews/question" %>
+
+<%= form_for (@interview) do |f| %>
+ <%= render 'layouts/error_messages', model: f.object %>
+
+ 
+
+<div class="title" style="margin-top:100px;margin-bottom:50px;">
+ <div class="card">
+  <div class="card-header">
+   <%= f.label "検索結果の中から見つけてもらえるような「引きの強い」タイトルをつけましょう！(50文字以内)",class:"h4 text-danger font-weight-bold" %><br/>
+  </div>
+   <%= f.text_area :title,class: "form-controll",class:"h2 w-100%"%>
+ </div>
+</div> 
+<div class="card">
+ <div class="card-header">
+  <p class="text-danger">Q1,はじめまして<%= @user.name %>さん。本日はお会いできて光栄です。まず、初めての読者に向けて〇〇さんの簡単な自己紹介をお願い致します。</P>
+ </div>
+   <%= f.text_area :answer_1, rows: 8,class:"form-controll"%>
+</div>
+ 
+<div class="card mt-5">
+ <div class="card-header">
+  <p class="text-danger">Q2,ありがとうございます。さっそくインタビューに入りたいと思います。まず、<%= @user.name %>さんの好きな音楽、バンドなど教えて頂けますか？</p>
+ </div>
+   <%= f.text_area :answer_2, rows: 8,class:"form-controll"%>
+</div>
+
+<div class="card mt-5">
+ <div class="card-header">
+  <p class="text-danger">Q3、なるほど。では、その中で特に好きなアルバムと、それを選んだ理由を教えて頂けますか？</p>
+ </div>
+  <%= f.text_area :answer_3, rows: 8,class:"form-controll"%>
+</div>  
+  
+<div class="card mt-5">
+ <div class="card-header"> 
+  <p class="text-danger">Q4、ありがとうございます。ちなみに音楽を聴くときはどういう部分を中心に聴きますか？例えばドラムのハイハットを中心に全体を聴いたり、
+   ギターの音作りを中心に聴くなど人それぞれあると思います。
+   一緒に演奏する人は、そういった部分も実は気になってる点ではないかと思うのでお伺いしたいのですが。</p>
+ </div>
+  <%= f.text_area :answer_4, rows: 8,class:"form-controll"%>
+</div>
+
+<div class="card mt-5">
+ <div class="card-header"> 
+  <p class="text-danger">Q5、ありがとうございます。非常に興味深いですね。もう少し掘り下げていきたいのですが、例えば単純に｢音質が好き｣というアルバムはありますか？
+  この場合、曲やバンドが好きじゃなくても構わないので｢音質｣そのものが好きなアルバムです。
+  レコーディングやライブをする時に、こういった所の相性も重要だと思います。</p>
+ </div>
+  <%= f.text_area :answer_5, rows: 8,class:"form-controll"%>
+</div> 
+
+<div class="card mt-5">
+ <div class="card-header"> 
+  <p class="text-danger">Q6,ありがとうございます。なんとなく<%= @user.name %>さんの音楽に対する｢良い音｣が見えてきました。では、使用楽器などあれば見せて頂けませんか？
+   それと、影響を受けたプレーヤーがいれば教えて下さい。</p>
+ </div>
+  <%= f.text_area :answer_6, rows: 8,class:"form-controll"%>
+</div>  
+
+<div class="card mt-5">
+ <div class="card-header">
+  <p class="text-danger">Q7,素晴らしいです。ちょっと変わった質問なのですが、アイデンティティを証明するようなグッズはありますか？例えばバンドTなど。
+  人によっては｢このバンドTを着てるやつは信用できる！｣みたいなアンテナがあると思うので、そこに訴えかける何か
+  紹介できるものがありましたら見せて頂けますか？</P>
+ </div>
+ <%= f.text_area :answer_7, rows: 8,class:"form-controll"%> 
+</div>   
+  
+<div class="card mt-5">
+ <div class="card-header"> 
+ <p class="text-danger">Q8,素晴らしいですね。きっと共鳴してくれる方がいらっしゃると思います。次に<%= @user.name %>さんの音楽観、
+ 今の方向性に繫がるようなライブの体験や映像作品などあれば教えて下さい。映像は音楽以外のものでも構いません。</P>
+ </div> 
+  <%= f.text_area :answer_8, rows: 8,class:"form-controll"%>
+</div>  
+
+<div class="card mt-5">
+ <div class="card-header">
+  <p class="text-danger">Q9,ありがとうございます。とても素晴らしいですね。では、残念ながらそろそろお時間ですので、最後にこれを読んでる読者に向けて、
+  <%= @user.name %>さんの演奏や歌が実際に聴けるサイトのURLや今後の活動方針について、何か伝えておきたいことがあればお願い致します。</P>
+ </div>
+  <%= f.text_area :answer_9, rows: 8,class:"form-controll"%>
+</div>  
+
+  
+<div class="card mt-5">
+ <div class="card-header">
+  <p class="text-danger">これでインタビューは終了となります。本日はお忙しい中、ありがとうございました!</p>
+ </div>
+</div>
+  
+<div class="card bg-light mt-5 mb-5">
+  <% if @user.sns_1? || @user.sns_2? %> 
+    <h4 class="text-danger"><%= @user.name %>さんに声をかけてみたいと思った方は、こちらのSNS URLから<%= @user.name %>さんへ連絡してみましょう！</h3>
+      <div class="row">
+       <p><%= link_to"SNSリンク1",@user.sns_1, class: "btn btn-primary ml-3" %></p>
+       <p><%= link_to"SNSリンク2",@user.sns_2, class: "btn btn-success ml-3" %></P>
+    </div>
+  <% end %>
+</div>
+  <div class="row justify-content-center">
+   <%= f.submit "インタビューを更新します", class:"btn btn-info mb-5 px-5 py-3 font-weight-bold"%>
+  </div>
+<% end %>
+
