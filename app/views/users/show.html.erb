@@ -20,8 +20,8 @@
      <% end %> 
      <% if @user.sns_2? %>
       <p><%= link_to"SNSリンク2",@user.sns_2, class: "btn btn-success ml-3" %></P>
-    <% end %>
-    </div> 
+     <% end %>
+    </div>
     <p><%= link_to "プロフィール編集へ",edit_user_path(@user), class: "btn btn-warning " %></p>
     <p><%= link_to "インタビュー作成へ",new_interview_path(@user), class: "btn btn-info " %></p>
     <p><%= link_to "ユーザー削除",root_path, class: "btn btn-danger  float-right" %></p>

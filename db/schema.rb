@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_123713) do
     t.text "gakki"
     t.text "item"
     t.text "photo"
-    t.text "title"
+    t.string "title"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

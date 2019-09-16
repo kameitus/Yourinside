@@ -10,5 +10,5 @@ class Interview < ApplicationRecord
   validates :answer_7, presence: true
   validates :answer_8, presence: true
   validates :answer_9, presence: true
-  validates :title, presence: true,length: { maximum: 30 }
+  validates :title, presence: true,length: { maximum: 50 }
 end

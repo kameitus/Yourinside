@@ -3,7 +3,7 @@ before_action :require_user_logged_in, only:[:new,:create,:update,:destroy]
   
 #検索＆検索結果表示ページ
   def index
-    @interviews = current_user.interview.order(id: :desc).page(params[:page])
+    @interview = current_user.interview.order(id: :desc).page(params[:page])
   end
   
 #公開インタビューページ（閲覧はログイン不要）
@@ -16,6 +16,8 @@ before_action :require_user_logged_in, only:[:new,:create,:update,:destroy]
     @interview = Interview.new
     @user = current_user
   end
+ 
+
   
 #インタビュー新規作成(new.html.erbが投稿ページ。)
   def create
@@ -23,7 +25,7 @@ before_action :require_user_logged_in, only:[:new,:create,:update,:destroy]
      @user = current_user
      if @interview.save
        flash[:success] = "インタビューを公開しました"
-       redirect_to interview_url
+       redirect_to interview_url(@interview.id)
      else
        flash[:danger] = "インタビューの投稿に失敗しました"
        render "new"
@@ -33,6 +35,14 @@ before_action :require_user_logged_in, only:[:new,:create,:update,:destroy]
   
 #インタビュー更新
   def update
+   @interview = Interview.find(params[:id])
+    if @interview.update(interview_params)
+      flash[:success] = "インタビュー正常に更新されました"
+      redirect_to @interview
+    else
+      flash.now[:danger] = "インタビューの更新に失敗しました"
+      render :new
+    end
   end
   
 #インタビュー削除

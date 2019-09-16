@@ -21,5 +21,5 @@ before_save { self.email.downcase! }
   
   belongs_to :prefecture, optional: true
   
-  has_one :interview
+  has_one :interview,dependent: :destroy
 end
