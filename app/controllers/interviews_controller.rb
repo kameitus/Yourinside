@@ -1,5 +1,5 @@
 class InterviewsController < ApplicationController
-before_action :require_user_logged_in, only:[:new,:create,:update,:destroy]
+before_action :require_user_logged_in, only:[:new,:edit,:create,:update,:destroy]
   
 #検索＆検索結果表示ページ
   def index
@@ -8,15 +8,19 @@ before_action :require_user_logged_in, only:[:new,:create,:update,:destroy]
   
 #公開インタビューページ（閲覧はログイン不要）
   def show
-    @interview = Interview.find(params[:id])
-    @user = current_user
+    @interview = Interview.find_by(id: params[:id])
+    @user = User.find_by(id: @interview.user_id)
   end
-  
+#インタビュー新規作成  
   def new
     @interview = Interview.new
     @user = current_user
   end
- 
+#インタビュー編集  
+  def edit
+    @interview = Interview.find_by(id: params[:id])
+    @user = User.find_by(id: @interview.user_id)
+  end
 
   
 #インタビュー新規作成(new.html.erbが投稿ページ。)
@@ -37,7 +41,7 @@ before_action :require_user_logged_in, only:[:new,:create,:update,:destroy]
   def update
    @interview = Interview.find(params[:id])
     if @interview.update(interview_params)
-      flash[:success] = "インタビュー正常に更新されました"
+      flash[:success] = "インタビューは正常に更新されました"
       redirect_to @interview
     else
       flash.now[:danger] = "インタビューの更新に失敗しました"

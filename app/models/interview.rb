@@ -1,6 +1,5 @@
 class Interview < ApplicationRecord
-  belongs_to :user
-  
+
   validates :answer_1, presence: true
   validates :answer_2, presence: true
   validates :answer_3, presence: true
@@ -11,4 +10,6 @@ class Interview < ApplicationRecord
   validates :answer_8, presence: true
   validates :answer_9, presence: true
   validates :title, presence: true,length: { maximum: 50 }
+  
+  belongs_to :user,optional: true
 end
