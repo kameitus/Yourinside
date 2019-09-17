@@ -1,5 +1,6 @@
 class InterviewsController < ApplicationController
 before_action :require_user_logged_in, only:[:new,:edit,:create,:update,:destroy]
+before_action :correct_user, only: [:edit,:update,:destroy]
   
 #検索＆検索結果表示ページ
   def index
@@ -11,15 +12,16 @@ before_action :require_user_logged_in, only:[:new,:edit,:create,:update,:destroy
     @interview = Interview.find_by(id: params[:id])
     @user = User.find_by(id: @interview.user_id)
   end
+  
 #インタビュー新規作成  
   def new
     @interview = Interview.new
     @user = current_user
   end
+  
 #インタビュー編集  
   def edit
-    @interview = Interview.find_by(id: params[:id])
-    @user = User.find_by(id: @interview.user_id)
+    @user = current_user
   end
 
   
@@ -39,7 +41,6 @@ before_action :require_user_logged_in, only:[:new,:edit,:create,:update,:destroy
   
 #インタビュー更新
   def update
-   @interview = Interview.find(params[:id])
     if @interview.update(interview_params)
       flash[:success] = "インタビューは正常に更新されました"
       redirect_to @interview
@@ -59,4 +60,11 @@ before_action :require_user_logged_in, only:[:new,:edit,:create,:update,:destroy
     params.require(:interview).permit(:answer_1,:answer_2,:answer_3,:answer_4,:answer_5,:answer_6,:answer_7,:answer_8,:answer_9,:gakki,:item,:photo,:title)
   end
   
+  def correct_user
+    @interview = Interview.find_by(id: params[:id])
+    if @interview.user_id != @current_user.id
+      flash[:danger] = "違うユーザーのインタビューは編集できません"
+      redirect_to mypage_path
+    end
+  end
 end
