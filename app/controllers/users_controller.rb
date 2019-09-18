@@ -49,6 +49,18 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
   
 #退会処理
   def destroy
+    @user = User.find_by(id: params[:id])
+    @interview = Interview.find_by(user_id: params[:id])
+    flash[:success] = "退会しました(インタビューも削除されました)"
+    
+     if @interview.nil?
+      @user.destroy
+      redirect_to("/")
+     else
+      @interview.destroy
+      @user.destroy
+      redirect_to("/")
+     end
   end
 end
 

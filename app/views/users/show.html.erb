@@ -31,7 +31,7 @@
       <p><%= link_to"インタビュー新規作成へ", new_interview_path(@user), class:"btn btn-info " %></p>
     <% end %>
     
-    <p><%= link_to "ユーザー削除",root_path, class: "btn btn-danger float-right" %></p>
+    <p><%= link_to "ユーザー削除",@user,method: :delete,data: { confirm: 'ユーザー情報とインタビューを削除して退会しますか？' } ,class: "btn btn-danger float-right" %></p>
   </div>
     <div class="mt-5 col-sm-7 offset-sm-1">
       <p>拍手したユーザ</p>
