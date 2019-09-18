@@ -10,7 +10,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
 #マイページ(プロフィール表示)
   def show
    @user = current_user
-   @interview = Interview.find_by(id: params[:id])
+   @interview = @user.interview
   end
   
 #新規登録画面

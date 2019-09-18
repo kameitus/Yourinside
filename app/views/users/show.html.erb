@@ -23,15 +23,17 @@
      <% end %>
     </div>
     <p><%= link_to "プロフィール編集へ",edit_user_path(@user), class: "btn btn-warning " %></p>
-    <% if @interview? %>
-      <p><%= link_to"インタビュー編集へ", edit_interview_path(@interview), class: "btn btn-info " %></p>
+    
+    <% if @interview %>
+      <p><%= link_to"インタビュー編集へ",edit_interview_path(@interview),class:"btn btn-info " %></p>
+      <p><%= link_to"インタビュー削除",@interview,method: :delete,data: { confirm: '本当に削除しますか？' },class:"btn btn-danger " %></p>
     <% else %>
-      <p><%= link_to"インタビュー新規作成へ", new_interview_path(@user), class: "btn btn-info " %></p>
+      <p><%= link_to"インタビュー新規作成へ", new_interview_path(@user), class:"btn btn-info " %></p>
     <% end %>
-    <p><%= link_to "ユーザー削除",root_path, class: "btn btn-danger  float-right" %></p>
+    
+    <p><%= link_to "ユーザー削除",root_path, class: "btn btn-danger float-right" %></p>
   </div>
     <div class="mt-5 col-sm-7 offset-sm-1">
       <p>拍手したユーザ</p>
     </div>
 </div>
-

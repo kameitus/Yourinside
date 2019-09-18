@@ -4,7 +4,6 @@ before_action :correct_user, only: [:edit,:update,:destroy]
   
 #検索＆検索結果表示ページ
   def index
-    @interview = current_user.interview.order(id: :desc).page(params[:page])
   end
   
 #公開インタビューページ（閲覧はログイン不要）
@@ -21,7 +20,7 @@ before_action :correct_user, only: [:edit,:update,:destroy]
   
 #インタビュー編集  
   def edit
-    @user = current_user
+    @user = User.find_by(id: @interview.user_id)
   end
 
   
@@ -52,6 +51,9 @@ before_action :correct_user, only: [:edit,:update,:destroy]
   
 #インタビュー削除
   def destroy
+   @interview.destroy
+   flash[:success] = "インタビューを削除しました"
+   redirect_back(fallback_location: root_path)
   end
   
   private
