@@ -1,16 +1,32 @@
 <h3 class="pt-3"><%= @user.name %>のプロフィール編集ページ</h3>
 
- <%= form_for(@user) do |f| %>
+ <%= form_with model:@user do |f| %>
  <div class="row">
   <div class="col-sm-4">
    <div class="field">
      <% if @user.icon? %>
       <div class="thumbnail">
-        <%= image_tag @user.icon.url %>
+        <%= image_tag @user.icon.url,id: :icon_prev %>
       </div>
      <% end %><br>
-     <%= f.label :icon, "プロフィール画像" ,class:"text-danger" %>
-     <%= f.file_field :icon %>
+     <%= f.label :icon, "プロフィール画像(UP後にサイズ調整されます)" ,class:"text-danger" %>
+     <%= f.file_field :icon,id: :icon_img ,class:"text-danger"%>
+      <script type="text/javascript">
+        $(function() {
+         function readURL(input) {
+           if (input.files && input.files[0]) {
+             var reader = new FileReader();
+             reader.onload = function (e) {
+               $('#icon_prev').attr('src', e.target.result);
+             }
+             reader.readAsDataURL(input.files[0]);
+           }
+         }
+         $("#icon_img").change(function(){
+           readURL(this);
+         });
+        });
+      </script>
      <%= f.hidden_field :icon_cache %>
    </div>
    <div class="field">
