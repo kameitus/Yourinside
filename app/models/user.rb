@@ -12,8 +12,9 @@ before_save { self.email.downcase! }
   validates :area, length: { maximum: 255}, on: :update
   validates :part, length: { maximum: 255}, on: :update
   validates :category, length: { maximum: 255},on: :update
-  validates :sns_1,  length: { maximum: 255}, on: :update
-  validates :sns_2,  length: { maximum: 255}, on: :update
+  validates :twitter,  length: { maximum: 255}, on: :update
+  validates :facebook,  length: { maximum: 255}, on: :update
+  validates :instagram,  length: { maximum: 255}, on: :update
   
   has_secure_password
   

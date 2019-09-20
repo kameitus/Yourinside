@@ -207,15 +207,23 @@
   </div>
  </div>
    
- <div class="card bg-light">
-   <% if @user.sns_1? || @user.sns_2? %> 
-     <h4 class="text-danger"><%= @user.name %>さんに声をかけてみたいと思った方は、こちらのSNS URLから<%= @user.name %>さんへ連絡してみましょう！</h3>
-       <div class="row">
-        <p><%= link_to"SNSリンク1",@user.sns_1, class: "btn btn-primary ml-3" %></p>
-        <p><%= link_to"SNSリンク2",@user.sns_2, class: "btn btn-success ml-3" %></P>
-     </div>
+ <div class="card bg-light mt-5 mb-5 ">
+ <% if @user.twitter? || @user.facebook? || @user.instagram? %> 
+  <h4 class="text-danger"><%= @user.name %>さんに声をかけてみたいと思った方は、こちらのSNS リンクから<%= @user.name %>さんへ連絡してみましょう！</h3>
+  <div class="row justify-content-center">
+   <%= link_to @user.twitter,target: :_blank,class:"btn btn-primary ml-2" do %>
+    <i class="fab fa-twitter"></i><h6>Twitter</h6>
    <% end %>
+   <%= link_to @user.facebook,target: :_blank, class: "btn btn-success ml-2" do %>
+    <i class="fab fa-facebook-square"></i><h6>Facebook</h6>
+   <% end %>
+   <%= link_to @user.instagram,target: :_blank, class: "btn btn-secondary ml-2" do%>
+    <i class="fab fa-instagram"></i><h6>Instagram</h6>
+   <% end %>
+  </div>
+ <% end %>
  </div>
+
    <% if @interview.user_id? %>
     <div class="row justify-content-center mt-5 mb-5">
      <%= f.submit "インタビューを更新します", class:"btn btn-info mb-5 px-5 py-3 font-weight-bold"%>

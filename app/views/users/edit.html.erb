@@ -60,12 +60,16 @@
     <li><%= f.label :category, "ジャンル", class:"text-danger" %>
         <%= f.select :category,{rock:"rock",punk:"punk",hardcore:"hardcore","post-punk":"post-punk","post-hardcore":"post-hardcore",emo:"emo","hip-hop":"hip-hop",
         reggae:"reggae",folk:"folk",instrument:"instrument",noise:"noise",industrial:"industrial",dub:"dub",jazz:"jazz",other:"other"}%></li>
-        
-    <li><%= f.label :sns_1, "SNSのリンクURL1" ,class:"text-danger"%>
-        <%= f.text_field :sns_1 %></li>
     
-    <li><%= f.label :sns_2, "SNSのリンクURL2",class:"text-danger" %>
-        <%= f.text_field :sns_2 %></li>
+    <p class="row text-danger mt-4 mb-2">SNSアカウントもアピールしたい方はURLを登録してください<br/>（インタビューでリンクボタンが表示されます)</p>    
+    <li><%= f.label :twitter, "twitter URL" ,class:"text-danger"%>
+        <%= f.text_field :twitter %></li>
+    
+    <li><%= f.label :facebook, "Facebook URL",class:"text-danger" %>
+        <%= f.text_field :facebook %></li>
+        
+    <li><%= f.label :instagram, "Instagram URL",class:"text-danger" %>
+        <%= f.text_field :instagram %></li>
      <div class="actions mt-4 ">
       <%= f.submit "プロフィール更新" ,class:"btn btn-primary btn-active"%>
      </div>

@@ -67,5 +67,6 @@ end
 private
 
 def user_params
- params.require(:user).permit(:name, :email, :password, :password_confirmation,:icon, :icon_cache, :remove_icon,:area,:age,:gender,:part,:category,:sns_1,:sns_2)
+ params.require(:user).permit(
+   :name, :email, :password, :password_confirmation,:icon, :icon_cache, :remove_icon,:icon_prev,:icon_img,:area,:age,:gender,:part,:category,:twitter,:facebook,:instagram)
 end

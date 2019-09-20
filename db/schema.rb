@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_123713) do
+ActiveRecord::Schema.define(version: 2019_09_20_152948) do
 
   create_table "interviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "answer_1"
@@ -47,12 +47,13 @@ ActiveRecord::Schema.define(version: 2019_09_16_123713) do
     t.string "area"
     t.string "part"
     t.string "category"
-    t.string "sns_1"
-    t.string "sns_2"
+    t.string "twitter"
+    t.string "facebook"
     t.text "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "prefecture_id"
+    t.string "instagram"
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
   end
 
