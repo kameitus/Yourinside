@@ -15,6 +15,8 @@ before_save { self.email.downcase! }
   validates :twitter,  length: { maximum: 255}, on: :update
   validates :facebook,  length: { maximum: 255}, on: :update
   validates :instagram,  length: { maximum: 255}, on: :update
+  validates :comment,  length: { maximum: 50}, on: :update
+  
   
   has_secure_password
   

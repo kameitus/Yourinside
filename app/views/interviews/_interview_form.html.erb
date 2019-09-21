@@ -57,6 +57,7 @@
      <tr><td>[性別]  <%= @user.gender %></td></tr>
      <tr><td>[担当]  <%= @user.part %></td></tr>
      <tr><td>[ジャンル]  <%= @user.category %></td></tr>
+     <tr><td>[コメント]  <%= @user.comment %></td></tr>
    </table>
   </div>
 </div>
@@ -105,7 +106,7 @@
    <p class="text-danger">Q6,ありがとうございます。なんとなく<%= @user.name %>さんの音楽に対する｢良い音｣が見えてきました。では、使用楽器などあれば見せて頂けませんか？
     それと、影響を受けたプレーヤーがいれば教えて下さい。</p>
   </div>
-   <%= f.text_area :answer_6,class:"form-controll"%>
+   <%= f.text_area :answer_6,rows: 8,class:"form-controll"%>
  </div> 
  
   <% if @interview.gakki? %>

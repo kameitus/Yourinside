@@ -60,6 +60,9 @@
     <li><%= f.label :category, "ジャンル", class:"text-danger" %>
         <%= f.select :category,{rock:"rock",punk:"punk",hardcore:"hardcore","post-punk":"post-punk","post-hardcore":"post-hardcore",emo:"emo","hip-hop":"hip-hop",
         reggae:"reggae",folk:"folk",instrument:"instrument",noise:"noise",industrial:"industrial",dub:"dub",jazz:"jazz",other:"other"}%></li>
+        
+    <li><%= f.label :comment, "コメント(50文字まで)", class:"text-danger" %>
+        <%= f.text_area :comment %></li>
     
     <p class="row text-danger mt-4 mb-2">SNSアカウントもアピールしたい方はURLを登録してください<br/>（インタビューでリンクボタンが表示されます)</p>    
     <li><%= f.label :twitter, "twitter URL" ,class:"text-danger"%>

@@ -6,12 +6,13 @@
   <div class="col-sm-4">
    <h3><%= @user.name %></h3>
    <p><%= image_tag @user.icon.url %></p>
-    <table class="table table-sm table-bordered table-light h3">
+    <table class="table table-sm table-bordered table-light">
       <tr><td>[地域]  <%= @user.area %></td></tr>
       <tr><td>[年齢]  <%= @user.age %></td></tr>
       <tr><td>[性別]  <%= @user.gender %></td></tr>
       <tr><td>[担当]  <%= @user.part %></td></tr>
       <tr><td>[ジャンル]  <%= @user.category %></td></tr>
+      <tr><td>[コメント]  <%= @user.comment %></td></tr>
     </table>
    
     <div class="row">

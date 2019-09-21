@@ -1,6 +1,6 @@
 <div class="pt-5 mb-5">
  <div class="row justify-content-center">
-  <%= image_tag @interview.photo.url %><br/>
+  <%= image_tag @interview.photo.url %>
   <div class="card">
    <div class="card-body">
     <h3><%= @interview.title %></h3>
@@ -13,7 +13,7 @@
  <div class="col-sm-4">
   <p><%= image_tag @user.icon.url %></p>
  </div><br/>
- <div class="col-sm-4 mt-3">
+ <div class="col-sm-4">
    <table class="table table-sm table-bordered table-light  font-weight-bold">
      <tr><td>[名前】 <%= @user.name %></td></tr>
      <tr><td>[地域]  <%= @user.area %></td></tr>
@@ -21,6 +21,7 @@
      <tr><td>[性別]  <%= @user.gender %></td></tr>
      <tr><td>[担当]  <%= @user.part %></td></tr>
      <tr><td>[ジャンル]  <%= @user.category %></td></tr>
+     <tr><td>[コメント]  <%= @user.comment %></td></tr>
    </table>
   </div>
 </div>
