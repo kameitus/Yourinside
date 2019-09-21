@@ -9,7 +9,7 @@
         <%= image_tag @user.icon.url,id: :icon_prev %>
       </div>
      <% end %><br>
-     <%= f.label :icon, "プロフィール画像(UP後にサイズ調整されます)" ,class:"text-danger" %>
+     <%= f.label :icon, "プロフィール画像(UP後にサイズ調整されます)" ,class:"text-danger bg-light" %>
      <%= f.file_field :icon,id: :icon_img ,class:"text-danger"%>
       <script type="text/javascript">
         $(function() {
@@ -38,40 +38,40 @@
      <% end %>
    </div>
   </div>
-  <div class="col-sm-7 offset-sm-1">
+  <div class="col-sm-5 offset-sm-3">
    <ul class="input">
-    <li><%= f.label :name, "名前", class:"text-danger" %>
+    <li><%= f.label :name, "名前", class:"text-danger bg-light" %>
         <%= f.text_field :name %></li>
         
-    <li><%= f.label :area, "地域", class:"text-danger" %>
+    <li><%= f.label :area, "地域", class:"text-danger bg-light" %>
         <%= f.collection_select :area,Prefecture.all,:name, :name %></li>
         
-    <li><%= f.label :age, "年齢", class:"text-danger" %>
+    <li><%= f.label :age, "年齢", class:"text-danger bg-light" %>
         <%= f.select :age,{
         "10~15":"10~15","15~20":"15~20","20~25":"20~25","25~30":"25~30","30~35":"30~35","35~40":"35~40",
         "40~45":"40~45","45~50":"45~50","50~55":"50~55","55~60":"55~60","60~":"60~"}%></li>
     
-    <li><%= f.label :gender, "性別", class:"text-danger" %>
+    <li><%= f.label :gender, "性別", class:"text-danger bg-light" %>
         <%= f.select :gender,{男性:"男性",女性:"女性",その他:"その他"}%></li>
     
-    <li><%= f.label :part, "担当", class:"text-danger" %>
+    <li><%= f.label :part, "担当", class:"text-danger bg-light" %>
         <%= f.select :part,{vocal:"vocal",guitar:"guitar",bass:"bass",drum:"drum",keyboard:"keyboard",other:"other"} %></li>
         
-    <li><%= f.label :category, "ジャンル", class:"text-danger" %>
+    <li><%= f.label :category, "ジャンル", class:"text-danger bg-light" %>
         <%= f.select :category,{rock:"rock",punk:"punk",hardcore:"hardcore","post-punk":"post-punk","post-hardcore":"post-hardcore",emo:"emo","hip-hop":"hip-hop",
         reggae:"reggae",folk:"folk",instrument:"instrument",noise:"noise",industrial:"industrial",dub:"dub",jazz:"jazz",other:"other"}%></li>
         
-    <li><%= f.label :comment, "コメント(50文字まで)", class:"text-danger" %>
+    <li><%= f.label :comment, "コメント(50文字まで)", class:"text-danger bg-light" %><br/>
         <%= f.text_area :comment %></li>
     
-    <p class="row text-danger mt-4 mb-2">SNSアカウントもアピールしたい方はURLを登録してください<br/>（インタビューでリンクボタンが表示されます)</p>    
-    <li><%= f.label :twitter, "twitter URL" ,class:"text-danger"%>
+    <p class="row text-danger bg-light mt-4 mb-2">SNSアカウントもアピールしたい方は<br/>SNSのURLを登録してください<br/>（インタビューでリンクボタンが表示されます)</p>    
+    <li><%= f.label :twitter, "Twitter URL" ,class:"text-danger bg-light"%>
         <%= f.text_field :twitter %></li>
     
-    <li><%= f.label :facebook, "Facebook URL",class:"text-danger" %>
+    <li><%= f.label :facebook, "Facebook URL",class:"text-danger bg-light" %>
         <%= f.text_field :facebook %></li>
         
-    <li><%= f.label :instagram, "Instagram URL",class:"text-danger" %>
+    <li><%= f.label :instagram, "Instagram URL",class:"text-danger bg-light" %>
         <%= f.text_field :instagram %></li>
      <div class="actions mt-4 ">
       <%= f.submit "プロフィール更新" ,class:"btn btn-primary btn-active"%>

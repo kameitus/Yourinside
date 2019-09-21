@@ -7,7 +7,7 @@
       <%= image_tag @interview.photo.url,id: :photo_prev %>
      </div>
     <% end %><br/>
-    <%= f.label :photo, "トップ画像(公開後はサイズ調整されます)", class:"text-danger" %>
+    <%= f.label :photo, "トップ画像(公開後はサイズ調整されます)", class:"text-danger bg-light" %>
     <%= f.file_field :photo,id: :photo_img,class:"text-danger" %>
       <script type="text/javascript">
         $(function() {
@@ -114,7 +114,7 @@
     <%= image_tag @interview.gakki.url,id: :gakki_prev %>
    </div>
   <% end %><br/>
-  <%= f.label :gakki, "楽器画像(公開後はサイズ調整されます)", class:"text-danger" %>
+  <%= f.label :gakki, "楽器画像(公開後はサイズ調整されます)", class:"text-danger bg-light" %>
   <%= f.file_field :gakki,id: :gakki_img,class:"text-danger" %>
     <script type="text/javascript">
       $(function() {
@@ -156,7 +156,7 @@
     <%= image_tag @interview.item.url,id: :item_prev %>
   </div>
   <% end %><br/>
-  <%= f.label :item, "アイテム画像(公開後はサイズ調整されます)", class:"text-danger" %>
+  <%= f.label :item, "アイテム画像(公開後はサイズ調整されます)", class:"text-danger bg-light" %>
   <%= f.file_field :item,id: :item_img,class:"text-danger" %>
   <script type="text/javascript">
     $(function() {
