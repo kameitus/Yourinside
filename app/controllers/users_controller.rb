@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 before_action :require_user_logged_in, only:[:show,:update,:destroy]
 
-
 #検索一覧（条件ヒットに限る）
   def index
    @users = User.order(id: :desc).page(params[:page]).per(25)
