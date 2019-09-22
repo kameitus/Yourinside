@@ -3,6 +3,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
 
 #検索一覧
   def index
+   # raise 'MyError'
    @q = User.joins(:interview).ransack(params[:q])
    @users = @q.result(distinct: true).order(id: :desc).page(params[:page]).per(5)
   end
