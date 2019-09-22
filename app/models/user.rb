@@ -27,7 +27,21 @@ before_save { self.email.downcase! }
   has_one :interview
   
   has_many :greats
-  has_many :praise, through: :greats, source: :interview
+  has_many :praises, through: :greats, source: :great
   
+  def praise(other_user)
+    unless self == other_user
+     self.greats.find_or_create_by(great_id: other_user.id )
+    end
+  end
+    
+  def unpraise(other_user)
+    great = self.greats.find_by(great_id: other_user.id)
+    great.destroy if great
+  end
+  
+  def praise?(other_user)
+    self.praises.include?(other_user)
+  end
   
 end
