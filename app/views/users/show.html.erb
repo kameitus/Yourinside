@@ -37,7 +37,7 @@
       
       <% if @interview %>
         <p><%= link_to"インタビュー編集へ",edit_interview_path(@interview),class:"btn btn-info " %></p>
-        <p><%= link_to"公開中のインタビュー", interview_path(@user), class:"btn btn-success " %></p>
+        <p><%= link_to"公開中のインタビュー", interview_path(@interview.id), class:"btn btn-success " %></p>
         <p><%= link_to"インタビュー削除",@interview,method: :delete,data: { confirm: '本当に削除しますか？' },class:"btn btn-danger mt-5" %></p>
       <% else %>
         <p><%= link_to"インタビュー新規作成へ", new_interview_path(@user), class:"btn btn-info " %></p>
