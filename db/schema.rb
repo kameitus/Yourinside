@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_21_031502) do
+ActiveRecord::Schema.define(version: 2019_09_22_132004) do
+
+  create_table "greats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "interview_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interview_id"], name: "index_greats_on_interview_id"
+    t.index ["user_id", "interview_id"], name: "index_greats_on_user_id_and_interview_id", unique: true
+    t.index ["user_id"], name: "index_greats_on_user_id"
+  end
 
   create_table "interviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "answer_1"
@@ -58,6 +68,8 @@ ActiveRecord::Schema.define(version: 2019_09_21_031502) do
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
   end
 
+  add_foreign_key "greats", "users"
+  add_foreign_key "greats", "users", column: "interview_id"
   add_foreign_key "interviews", "users"
   add_foreign_key "users", "prefectures"
 end
