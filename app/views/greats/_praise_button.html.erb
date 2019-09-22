@@ -1,0 +1,13 @@
+<% unless current_user == user %>
+ <% if current_user.praise?(user) %>
+  <%= form_with(model: current_user.greats.find_by(great_id: user.id), local: true, method: :delete) do |f| %>
+   <%= hidden_field_tag :great_id, user.id %>
+   <%= f.submit "このインタビューの拍手を取り消す", class: 'btn btn-danger mt-1 mb-5' %>
+  <% end %>
+ <% else %>
+  <%= form_with(model: current_user.greats.build,local:true) do |f| %>
+    <%= hidden_field_tag :great_id, user.id %>
+   <%= f.submit "このインタビューへ拍手を贈る！", class: 'btn btn-warning mt-1 mb-5' %>
+  <% end %>
+ <% end %>
+<% end %>
