@@ -2,9 +2,6 @@ class InterviewsController < ApplicationController
 before_action :require_user_logged_in, only:[:new,:edit,:create,:update,:destroy]
 before_action :correct_user, only: [:edit,:update,:destroy]
   
-#検索＆検索結果表示ページ
-  def index
-  end
   
 #公開インタビューページ（閲覧はログイン不要）
   def show
@@ -59,8 +56,12 @@ before_action :correct_user, only: [:edit,:update,:destroy]
   private
   
   def interview_params
-    params.require(:interview).permit(:answer_1,:answer_2,:answer_3,:answer_4,:answer_5,:answer_6,:answer_7,:answer_8,:answer_9,:gakki,:item,:photo,:title)
+    params.require(:interview).permit(
+      :answer_1,:answer_2,:answer_3,:answer_4,:answer_5,:answer_6,:answer_7,:answer_8,:answer_9,:gakki,:item,:photo,:title,
+      :photo_prev,:photo_cache,:photo_img,:remove_photo,:gakki_img,:gakki_cache,:gakki_prev,:remove_gakki,:item_img,:item_cache,:item_prev,:remove_item)
   end
+  
+  
   
   def correct_user
     @interview = Interview.find_by(id: params[:id])

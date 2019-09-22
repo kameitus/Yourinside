@@ -20,9 +20,10 @@ class IconUploader < CarrierWave::Uploader::Base
       "default.png"
     #"/images/fallback/" + [version_name, "default.png"].compact.join('_')
    end
-  process resize_to_fill: [300, 250, "Center"]
-  #process :resize_to_limit => [300, 300]
+   
+  process resize_to_fit: [300,300]
 
+  #end
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
@@ -32,14 +33,14 @@ class IconUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   #version :thumb do
-   #process resize_to_fit: [300, 300]
+   #process resize_to_fit: [200, 150]
   #end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_whitelist
-  #   %w(jpg jpeg gif png)
-  # end
+   def extension_whitelist
+     %w(jpg jpeg gif png)
+   end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

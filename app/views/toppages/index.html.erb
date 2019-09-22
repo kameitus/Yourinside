@@ -1,9 +1,9 @@
 <body>
- <div class="pt-5 text-center">
+ <div class="pt-5 text-center justify-content-center">
   <p><%= image_tag('Your Inside_logo.png') %></p>
   <p class="top_info">「YOUR INSIDE」はバンドメンバー募集に活用できる「インタビュー形式プロフィール投稿サービス」です。</br>
-      従来のメン募サイトではプロフィール欄に好きなバンドを羅列するくらいしか自己PRできずなかなか相性ピッタリのメンバーに出会えない、もしくは出会うまでに時間がかかっている方が多いと思います。</br>
-      「YOUR INSIDE」でインタビュー形式プロフィールを作成し、インタビューのURLをメン募サイトのプロフィールやSNSで拡散してください。</br>
+      従来のメン募サイトではプロフィール欄に好きなバンドを羅列するくらいしか自己PRできず、なかなか相性ピッタリのメンバーに出会えない、もしくは出会うまでに時間がかかっている方が多いと思います。</br>
+      「YOUR INSIDE」でインタビュー形式プロフィールを作成して、インタビューのURLをメン募サイトのプロフィール欄やSNSで拡散してください。</br>
       メン募サイトで充分にアピールできなかったアナタの「音楽観」や「センス」を深い部分まで知ってもらいアナタと相性抜群のメンバーを見つけて最高のバンドを組みましょう！</p>
  </div>
 
@@ -16,10 +16,10 @@
 
 <div class="row justify-content-around">
   <div class="col-sm-3">
-   <span class="login_button"><%= link_to raw("インタビュー作成は<br/>ログインしてください"), login_path,class: "text-dark" %></span>
+   <span class="login_button"><%= link_to raw("インタビュー作成は<br/>ログインしてください"), mypage_path,class: "text-dark" %></span>
   </div>
   <div class="col-sm-3">
-   <span class="search_button"><%= link_to raw("インタビュー検索へ<br/>(登録不要)"), login_path,class: "text-dark" %></span>
+   <span class="search_button"><%= link_to raw("インタビュー検索へ<br/>(登録不要)"),search_path,class: "text-dark" %></span>
   </div>
 </div>
 

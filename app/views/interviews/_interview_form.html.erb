@@ -57,7 +57,7 @@
      <tr><td>[性別]  <%= @user.gender %></td></tr>
      <tr><td>[担当]  <%= @user.part %></td></tr>
      <tr><td>[ジャンル]  <%= @user.category %></td></tr>
-     <tr><td>[コメント]  <%= @user.comment %></td></tr>
+     <tr><td>[検索用コメント]  <%= @user.comment %></td></tr>
    </table>
   </div>
 </div>
@@ -204,26 +204,27 @@
    
  <div class="card mt-5">
   <div class="card-header">
-   <p class="text-danger">これでインタビューは終了となります。本日はお忙しい中、ありがとうございました!</p>
+   <p class="text-danger h4">これでインタビューは終了となります。本日はお忙しい中、ありがとうございました!</p>
   </div>
  </div>
    
- <div class="card bg-light mt-5 mb-5 ">
- <% if @user.twitter? || @user.facebook? || @user.instagram? %> 
-  <h4 class="text-danger"><%= @user.name %>さんに声をかけてみたいと思った方は、こちらのSNS リンクから<%= @user.name %>さんへ連絡してみましょう！</h3>
-  <div class="row justify-content-center">
-   <%= link_to @user.twitter,target: :_blank,class:"btn btn-primary ml-2" do %>
-    <i class="fab fa-twitter"></i><h6>Twitter</h6>
+ 
+ <% if @user.twitter? || @user.facebook? || @user.instagram? %>
+  <div class="card bg-light mt-5 mb-5 ">
+   <h4 class="text-danger text-center h5"><%= @user.name %>さんに声をかけてみたいと思った方は、こちらのSNS リンクから<%= @user.name %>さんへ連絡してみましょう！</h3>
+   <div class="row justify-content-center">
+    <%= link_to @user.twitter,target: :_blank,class:"btn btn-primary ml-2" do %>
+     <i class="fab fa-twitter"></i><h6>Twitter</h6>
+    <% end %>
+    <%= link_to @user.facebook,target: :_blank, class: "btn btn-success ml-2" do %>
+     <i class="fab fa-facebook-square"></i><h6>Facebook</h6>
+    <% end %>
+    <%= link_to @user.instagram,target: :_blank, class: "btn btn-secondary ml-2" do%>
+     <i class="fab fa-instagram"></i><h6>Instagram</h6>
    <% end %>
-   <%= link_to @user.facebook,target: :_blank, class: "btn btn-success ml-2" do %>
-    <i class="fab fa-facebook-square"></i><h6>Facebook</h6>
-   <% end %>
-   <%= link_to @user.instagram,target: :_blank, class: "btn btn-secondary ml-2" do%>
-    <i class="fab fa-instagram"></i><h6>Instagram</h6>
-   <% end %>
+   </div>
   </div>
  <% end %>
- </div>
 
    <% if @interview.user_id? %>
     <div class="row justify-content-center mt-5 mb-5">

@@ -1,18 +1,54 @@
-<% if users.any? %>
-  <ul class="list-unstyled">
-    <% users.each do |user| %>
-      <li class="media">
-        <img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
-        <div class="media-body">
-          <div>
-            <%= user.name %>
-          </div>
-          <div>
-            <p><%= link_to 'View profile', user_path(user) %></p>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-  <%= paginate users %>
-<% end %>
+<body id="search">
+<div class="pt-5">
+  <%= search_form_for @q do |f| %>
+   <%= f.label :name_cont, "名前", class:"font-weight-bold" %>
+   <%= f.text_field :name_cont %>
+  
+   <%= f.label :area_eq, "地域", class:"font-weight-bold" %>
+   <%= f.collection_select :area_eq,Prefecture.all,:name, :name,:include_blank => '指定なし' %>
+        
+   <%= f.label :age_eq, "年齢", class:"font-weight-bold" %>
+   <%= f.select :age_eq,{
+        "10~15":"10~15","15~20":"15~20","20~25":"20~25","25~30":"25~30","30~35":"30~35","35~40":"35~40",
+        "40~45":"40~45","45~50":"45~50","50~55":"50~55","55~60":"55~60","60~":"60~"},:include_blank => '指定なし'%>
+    
+   <%= f.label :gender_eq, "性別", class:"font-weight-bold" %>
+   <%= f.select :gender_eq,{男性:"男性",女性:"女性",その他:"その他"},:include_blank => '指定なし'%><br/>
+    
+   <%= f.label :part_eq, "担当", class:"font-weight-bold" %>
+   <%= f.select :part_eq,{vocal:"vocal",guitar:"guitar",bass:"bass",drum:"drum",keyboard:"keyboard",other:"other"},:include_blank => '指定なし' %>
+        
+   <%= f.label :category_eq, "ジャンル", class:"font-weight-bold" %>
+   <%= f.select :category_eq,{rock:"rock",punk:"punk",hardcore:"hardcore","post-punk":"post-punk","post-hardcore":"post-hardcore",emo:"emo","hip-hop":"hip-hop",
+        reggae:"reggae",folk:"folk",instrument:"instrument",noise:"noise",industrial:"industrial",dub:"dub",jazz:"jazz",other:"other"},:include_blank => '指定なし'%>
+   
+   <%= f.label :comment_cont, "コメント検索", class:"font-weight-bold" %>
+   <%= f.search_field :comment_cont %>
+   
+   <div class=" row justify-content-start mt-3">
+     <%= f.submit "インタビュー検索", class:"btn btn-primary"%>
+   </div>
+  <% end %>
+</div>
+
+ <% @users.each do |u| %>
+ <div class="mt-4 font-weight-bold h4">
+   <span>[名前]  </span><%= u.name %>
+ </div>
+ <div class="font-weight-bold h6">
+   <ul class="list-unstyled font-weight-bold">
+    <li><%= u.area %> <%= u.age %>歳 <%= u.gender %> <%= u.part %> <%= u.category %><br/><span class="text-danger">【コメント】<%= u.comment %></span></li>
+   </ul> 
+ </div>
+ <div class="row mb-4">
+  <div class=" col-sm-4 ">
+   <%= link_to (image_tag u.icon.url),interview_path(id: u.interview.id) %>
+  </div>
+  <div class="card col-sm-8 h1">
+    <%= u.interview.title %>
+  </div>
+ </div>
+ <% end %>
+
+ <%= paginate @users %>
+</body>

@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 before_action :require_user_logged_in, only:[:show,:update,:destroy]
 
-#検索一覧（条件ヒットに限る）
+#検索一覧
   def index
-   @users = User.order(id: :desc).page(params[:page]).per(25)
+   @q = User.joins(:interview).ransack(params[:q])
+   @users = @q.result(distinct: true).order(id: :desc).page(params[:page]).per(5)
   end
   
 #マイページ(プロフィール表示)
@@ -32,7 +33,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
   
 #プロフィール変更ページ  
   def edit
-     @user = current_user
+   @user = current_user
   end
   
 #プロフィール更新実行
@@ -61,12 +62,18 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
       redirect_to("/")
      end
   end
+
+
+  private
+
+  def user_params
+   params.require(:user).permit(
+     :name, :email, :password, :password_confirmation,:icon, :icon_cache, :remove_icon,:icon_prev,:icon_img,
+     :area,:age,:gender,:part,:category,:twitter,:facebook,:instagram,:comment)
+  end
+  
+  def search_params
+    params.require(:q).permit(:name_cont,:comment_cont)
+  end
 end
 
-private
-
-def user_params
- params.require(:user).permit(
-   :name, :email, :password, :password_confirmation,:icon, :icon_cache, :remove_icon,:icon_prev,:icon_img,
-   :area,:age,:gender,:part,:category,:twitter,:facebook,:instagram,:comment)
-end

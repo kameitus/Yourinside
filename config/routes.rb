@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   get "mypage", to: "users#show"
   resources :users
   
-  resources :interviews
+  resources :interviews, except:[:index]
 end
 
