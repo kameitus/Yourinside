@@ -26,4 +26,8 @@ before_save { self.email.downcase! }
   
   has_one :interview
   
+  has_many :greats
+  has_many :praise, through: :greats, source: :interview
+  
+  
 end
