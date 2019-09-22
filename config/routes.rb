@@ -9,8 +9,15 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   get "search", to: "users#index"
   get "mypage", to: "users#show"
-  resources :users
+  
+  resources :users do
+    member do
+     get :praises
+     get :be_praises
+    end
+  end
   
   resources :interviews, except:[:index]
+  resources :greats, only:[:create,:destroy]
 end
 
