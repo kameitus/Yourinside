@@ -16,6 +16,5 @@ class Interview < ApplicationRecord
   mount_uploader :gakki, GakkiUploader
   mount_uploader :item, ItemUploader
   
-  has_many :reverses_of_great, class_name: "Great", foreign_key: "user_id"
-  has_many :be_praises, through: :reverses_of_great, source: :user
+  
 end

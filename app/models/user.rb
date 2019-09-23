@@ -28,6 +28,8 @@ before_save { self.email.downcase! }
   
   has_many :greats
   has_many :praises, through: :greats, source: :great
+  has_many :reverses_of_great, class_name: "Great", foreign_key: "great_id"
+  has_many :be_praises, through: :reverses_of_great, source: :user
   
   def praise(other_user)
     unless self == other_user

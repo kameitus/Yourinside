@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :require_user_logged_in, only:[:show,:update,:destroy]
+before_action :require_user_logged_in, only:[:show,:update,:destroy,:praises,:be_praises]
 
 #検索一覧
   def index
@@ -12,6 +12,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
   def show
    @user = current_user
    @interview = @user.interview
+   @praises = @user.praises.page(params[:page]).per(5)
   end
   
 #新規登録画面
@@ -63,6 +64,11 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
       @user.destroy
       redirect_to("/")
      end
+  end
+  
+  def be_praises
+    @user = User.find(params[:id])
+    @be_praises = @user.be_praises.page(params[:page]).per(5)
   end
 
 
