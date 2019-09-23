@@ -1,60 +1,55 @@
 <body id="search">
-<div class="pt-5">
-  <%= search_form_for @q do |f| %>
-   <%= f.label :name_cont, "名前", class:"font-weight-bold" %>
-   <%= f.text_field :name_cont %><br/>
-  
-   <%= f.label :area_eq, "地域", class:"font-weight-bold" %>
-   <%= f.collection_select :area_eq,Prefecture.all,:name, :name,:include_blank => '指定なし' %><br/>
-        
-   <%= f.label :age_eq, "年齢", class:"font-weight-bold" %>
-   <%= f.select :age_eq,{
-        "10~15":"10~15","15~20":"15~20","20~25":"20~25","25~30":"25~30","30~35":"30~35","35~40":"35~40",
-        "40~45":"40~45","45~50":"45~50","50~55":"50~55","55~60":"55~60","60~":"60~"},:include_blank => '指定なし'%><br/>
+ <div class="pt-5">
+   <%= search_form_for @q do |f| %>
+    <%= f.label :name_cont, "名前", class:"font-weight-bold" %>
+    <%= f.text_field :name_cont %><br/>
+   
+    <%= f.label :area_eq, "地域", class:"font-weight-bold" %>
+    <%= f.collection_select :area_eq,Prefecture.all,:name, :name,:include_blank => '指定なし' %><br/>
+         
+    <%= f.label :age_eq, "年齢", class:"font-weight-bold" %>
+    <%= f.select :age_eq,{
+         "10~15":"10~15","15~20":"15~20","20~25":"20~25","25~30":"25~30","30~35":"30~35","35~40":"35~40",
+         "40~45":"40~45","45~50":"45~50","50~55":"50~55","55~60":"55~60","60~":"60~"},:include_blank => '指定なし'%><br/>
+     
+    <%= f.label :gender_eq, "性別", class:"font-weight-bold" %>
+    <%= f.select :gender_eq,{男性:"男性",女性:"女性",その他:"その他"},:include_blank => '指定なし'%><br/>
+     
+    <%= f.label :part_eq, "担当", class:"font-weight-bold" %>
+    <%= f.select :part_eq,{vocal:"vocal",guitar:"guitar",bass:"bass",drum:"drum",keyboard:"keyboard",other:"other"},:include_blank => '指定なし' %><br/>
+         
+    <%= f.label :category_eq, "ジャンル", class:"font-weight-bold" %>
+    <%= f.select :category_eq,{rock:"rock",punk:"punk",hardcore:"hardcore","post-punk":"post-punk","post-hardcore":"post-hardcore",emo:"emo","hip-hop":"hip-hop",
+         reggae:"reggae",folk:"folk",instrument:"instrument",noise:"noise",industrial:"industrial",dub:"dub",jazz:"jazz",other:"other"},:include_blank => '指定なし'%><br/>
     
-   <%= f.label :gender_eq, "性別", class:"font-weight-bold" %>
-   <%= f.select :gender_eq,{男性:"男性",女性:"女性",その他:"その他"},:include_blank => '指定なし'%><br/>
+    <%= f.label :comment_cont, "コメント検索", class:"font-weight-bold" %>
+    <%= f.search_field :comment_cont %><br/>
     
-   <%= f.label :part_eq, "担当", class:"font-weight-bold" %>
-   <%= f.select :part_eq,{vocal:"vocal",guitar:"guitar",bass:"bass",drum:"drum",keyboard:"keyboard",other:"other"},:include_blank => '指定なし' %><br/>
-        
-   <%= f.label :category_eq, "ジャンル", class:"font-weight-bold" %>
-   <%= f.select :category_eq,{rock:"rock",punk:"punk",hardcore:"hardcore","post-punk":"post-punk","post-hardcore":"post-hardcore",emo:"emo","hip-hop":"hip-hop",
-        reggae:"reggae",folk:"folk",instrument:"instrument",noise:"noise",industrial:"industrial",dub:"dub",jazz:"jazz",other:"other"},:include_blank => '指定なし'%><br/>
-   
-   <%= f.label :comment_cont, "コメント検索", class:"font-weight-bold" %>
-   <%= f.search_field :comment_cont %><br/>
-   
-   <%= f.label :interview_title_cont, "タイトル検索", class:"font-weight-bold" %>
-   <%= f.search_field :interview_title_cont %><br/>
-   
-   <div class=" row justify-content-start mt-3">
-     <%= f.submit "インタビュー検索", class:"btn btn-primary"%>
+    <%= f.label :interview_title_cont, "タイトル検索", class:"font-weight-bold" %>
+    <%= f.search_field :interview_title_cont %><br/>
+    
+    <div class=" row justify-content-start mt-3">
+      <%= f.submit "インタビュー検索", class:"btn btn-primary"%>
+    </div>
+   <% end %>
+ </div>
+
+ <% @users.each do |u| %>
+  <div class="mt-5">
+   <span class="h2">【<%= u.name %>】</span>
+   <div class="font-weight-bold mt-1">
+    <%= u.area %>  <%= u.age %>歳  <%= u.gender %>  <%= u.part %>  <%= u.category %><br/>
+    <span class="text-danger mb-2">[コメント]</span><%= u.comment %>
    </div>
-  <% end %>
-</div>
-
-<% @users.each do |u| %>
-<div class="mt-5 h2">
- <span class="text-danger h4">[名前] </span><%= u.name %>
-</div>
-<div class="row">
-  <%= link_to (image_tag u.icon.url),interview_path(id: u.interview.id) %>
-  <div class="font-weight-bold ml-3">
-   <ul class="list-unstyled">
-    <li><span class="text-danger">[地域]</span><%= u.area %></li>
-    <li><span class="text-danger">[年齢]</span><%= u.age %>歳</li>
-    <li><span class="text-danger">[性別]</span><%= u.gender %></li>
-    <li><span class="text-danger">[担当]</span><%= u.part %></li>
-    <li><span class="text-danger">[ジャンル]</span><%= u.category %></li>
-    <span class="text-danger">[コメント]<%= u.comment %></span></li>
-   </ul> 
   </div>
- </div>
- <div class="card h1 mb-3">
+  <div class="row">
+   <div class="col-sm-4">
+    <%= link_to (image_tag u.icon.url),interview_path(id: u.interview.id) %>
+   </div>
+   <div class="card h1 mt-3 col-sm-7">
     <%= u.interview.title %>
- </div>
-<% end %>
-
-<%= paginate @users %>
+   </div>
+  </div>
+ <% end %>
+ <%= paginate @users %>
 </body>

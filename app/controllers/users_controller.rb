@@ -44,6 +44,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
       flash[:success] = "プロフィールを更新しました。"
       redirect_to mypage_url
     else
+      flash[:danger] = "プロフィール更新に失敗しました"
       render :show
     end
   end
@@ -74,7 +75,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy]
   end
   
   def search_params
-    params.require(:q).permit(:name_cont,:comment_cont)
+    params.require(:q).permit(:name_cont,:comment_cont,:interview_title_cont)
   end
 end
 
