@@ -1,10 +1,15 @@
 class IconUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  #include CarrierWave::RMagick
+  #include CarrierWave::MiniMagick
+  
+  include Cloudinary::CarrierWave
 
+  process :convert => 'png'
+  process :tags => ['icon']
+  
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -22,7 +27,16 @@ class IconUploader < CarrierWave::Uploader::Base
    end
    
   process resize_to_fit: [200,150]
+  
 
+  # 保存する画像の種類をサイズ別に設定
+  version :standard do
+    process :resize_to_fill => [100, 150, :north]
+  end
+
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
   #end
   # Process files as they are uploaded:
   # process scale: [200, 300]
@@ -35,7 +49,9 @@ class IconUploader < CarrierWave::Uploader::Base
   #version :thumb do
    #process resize_to_fit: [200, 150]
   #end
-
+  def public_id
+    return "local_test_cloudinary/" + Cloudinary::Utils.random_public_id;
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
    def extension_whitelist

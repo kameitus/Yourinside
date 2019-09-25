@@ -1,10 +1,15 @@
 class GakkiUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  #include CarrierWave::RMagick
+  #include CarrierWave::MiniMagick
+  
+  include Cloudinary::CarrierWave
 
+  process :convert => 'png'
+  process :tags => ['gakki']
+  
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -21,6 +26,16 @@ class GakkiUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
   process resize_to_fill: [500, 400, "Center"]
+  
+
+  # 保存する画像の種類をサイズ別に設定
+  version :standard do
+    process :resize_to_fill => [100, 150, :north]
+  end
+
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
@@ -32,13 +47,17 @@ class GakkiUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process resize_to_fit: [50, 50]
   # end
-
+  def public_id
+    return "local_test_cloudinary/" + Cloudinary::Utils.random_public_id;
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_whitelist
   #   %w(jpg jpeg gif png)
   # end
-
+  def extension_whitelist
+     %w(jpg jpeg gif png)
+  end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
