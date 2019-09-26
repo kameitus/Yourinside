@@ -44,7 +44,7 @@
   </div>
   <div class="row">
    <div class="col-sm-4">
-    <%= link_to (image_tag u.icon.url),interview_path(id: u.interview.id) %>
+    <%= link_to (cl_image_tag u.icon.url),interview_path(id: u.interview.id) %>
    </div>
    <div class="card h1 mt-3 col-sm-7">
     <%= u.interview.title %>

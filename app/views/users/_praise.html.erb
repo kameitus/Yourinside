@@ -1,5 +1,5 @@
 <% users.each do |user| %>
-  <%= link_to (image_tag user.icon.url),interview_path(id: user.interview.id) %>
+  <%= link_to (cl_image_tag user.icon.url),interview_path(id: user.interview.id) %>
   <div class="card font-weight-bold h4 mb-5">
   　<p><%= user.name %>『<%= user.interview.title %>』</p>
   </div>
