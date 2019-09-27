@@ -67,3 +67,7 @@ group :production do
 end
 
 gem 'cloudinary'
+
+group :development, :test do
+  gem 'rails-env-credentials'
+end

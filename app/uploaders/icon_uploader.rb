@@ -8,9 +8,9 @@ class IconUploader < CarrierWave::Uploader::Base
   process :convert => 'png'
   process :tags => ['icon']
   
-  CarrierWave.configure do |config|
-   config.cache_storage = :file
-  end
+ CarrierWave.configure do |config|
+  config.cache_storage = :file
+ end
   # Choose what kind of storage to use for this uploader:
    #storage :file
    #storage :fog
