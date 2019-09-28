@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_22_132004) do
+ActiveRecord::Schema.define(version: 2019_09_28_125314) do
 
   create_table "greats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2019_09_22_132004) do
     t.text "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "prefecture_id"
     t.string "instagram"
     t.string "comment"
+    t.bigint "prefecture_id"
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
   end
 
