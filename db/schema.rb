@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_125314) do
+ActiveRecord::Schema.define(version: 2019_09_27_125121) do
 
   create_table "greats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -71,5 +71,4 @@ ActiveRecord::Schema.define(version: 2019_09_28_125314) do
   add_foreign_key "greats", "users"
   add_foreign_key "greats", "users", column: "great_id"
   add_foreign_key "interviews", "users"
-  add_foreign_key "users", "prefectures"
 end
