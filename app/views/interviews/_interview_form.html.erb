@@ -6,6 +6,8 @@
      <div class="thumbnail">
       <%= cl_image_tag @interview.photo.url,id: :photo_prev %>
      </div>
+    <% else %>
+      <%= cl_image_tag("default.png_m8owuo.png") %>
     <% end %><br/>
     <%= f.label :photo, "トップ画像(公開後はサイズ調整されます)", class:"text-danger bg-light" %>
     <%= f.file_field :photo,id: :photo_img,class:"text-danger" %>
@@ -47,7 +49,11 @@
  
 <div class="row justify-content-center">
  <div class="col-sm-4">
+ <% if @user.icon? %>
   <p><%= cl_image_tag @user.icon.url %></p>
+ <% else %>
+  <%= cl_image_tag("default.png_m8owuo.png") %>
+ <% end %>
  </div><br/>
  <div class="col-sm-4">
    <table class="table table-sm table-bordered table-light  font-weight-bold">
@@ -113,6 +119,8 @@
    <div class="thumbnail">
     <%= cl_image_tag @interview.gakki.url,id: :gakki_prev %>
    </div>
+  <% else %>
+    <%= cl_image_tag("default.png_m8owuo.png") %>
   <% end %><br/>
   <%= f.label :gakki, "楽器画像(公開後はサイズ調整されます)", class:"text-danger bg-light" %>
   <%= f.file_field :gakki,id: :gakki_img,class:"text-danger" %>
@@ -155,6 +163,8 @@
   <div class="thumbnail">
     <%= cl_image_tag @interview.item.url,id: :item_prev %>
   </div>
+  <% else %>
+    <%= cl_image_tag("default.png_m8owuo.png") %>
   <% end %><br/>
   <%= f.label :item, "アイテム画像(公開後はサイズ調整されます)", class:"text-danger bg-light" %>
   <%= f.file_field :item,id: :item_img,class:"text-danger" %>

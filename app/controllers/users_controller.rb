@@ -68,6 +68,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy,:praises,:be
   def be_praises
     @user = User.find(params[:id])
     @be_praises = @user.be_praises.page(params[:page]).per(5)
+    @interview = @user.interview
   end
 
 

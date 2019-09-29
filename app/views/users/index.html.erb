@@ -46,7 +46,11 @@
   </div>
   <div class="row">
    <div class="col-sm-4">
+   <% if u.icon? %>
     <%= link_to (cl_image_tag u.icon.url),interview_path(id: u.interview.id) %>
+   <% else %>
+    <%= link_to (cl_image_tag("default.png_m8owuo.png")),interview_path(id: u.interview.id)%>
+   <% end %>
    </div>
    <div class="card h1 mt-3 col-sm-7">
     <%= u.interview.title %>

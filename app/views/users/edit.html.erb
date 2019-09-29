@@ -7,9 +7,11 @@
    <div class="field">
      <% if @user.icon? %>
       <div class="thumbnail">
-        <%= cl_image_tag @user.icon.url,id: :icon_prev %>
+       <%= cl_image_tag @user.icon.url,id: :icon_prev %>
       </div>
-     <% end %><br>
+     <% else %>
+       <%= cl_image_tag("default.png_m8owuo.png") %>
+     <% end %>
      <%= f.label :icon, "プロフィール画像(UP後にサイズ調整されます)" ,class:"text-danger bg-light" %>
      <%= f.file_field :icon,id: :icon_img ,class:"text-danger"%>
       <script type="text/javascript">
