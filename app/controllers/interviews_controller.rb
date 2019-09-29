@@ -7,6 +7,7 @@ before_action :correct_user, only: [:edit,:update,:destroy]
   def show
     @interview = Interview.find_by(id: params[:id])
     @user = User.find_by(id: @interview.user_id)
+    @sample = User.find(1)
   end
   
 #インタビュー新規作成  
