@@ -1,7 +1,7 @@
 <body>
  <div class="pt-5 text-center justify-content-center">
   <p><%= cl_image_tag('Your_Inside_logo_zxtkne.png') %></p>
-  <p class="top_info">「YOUR INSIDE」はバンドメンバー募集に活用できる「インタビュー形式プロフィール投稿サービス」です。</br>
+  <p class="top_info mt-5">「YOUR INSIDE」はバンドメンバー募集に活用できる「インタビュー形式プロフィール投稿サービス」です。</br>
       従来のメン募サイトではプロフィール欄に好きなバンドを羅列するくらいしか自己PRできず、なかなか相性ピッタリのメンバーに出会えない、もしくは出会うまでに時間がかかっている方が多いと思います。</br>
       「YOUR INSIDE」でインタビュー形式プロフィールを作成して、インタビューのURLをメン募サイトのプロフィール欄やSNSで拡散してください。</br>
       メン募サイトで充分にアピールできなかったアナタの「音楽観」や「センス」を深い部分まで知ってもらいアナタと相性抜群のメンバーを見つけて最高のバンドを組みましょう！ </p>
@@ -9,28 +9,25 @@
 
 
 
-<div class="row justify-content-center">
-  <span class="sample_button"><%= link_to "まずはサンプルをチェック！", interview_path(id: 1),class: "text-dark" %></span>
-</div>
+ <div class="mt-5 row justify-content-center">
+   <span class="sample_button"><%= link_to "まずはサンプルをチェック！", interview_path(id: 1),class: "text-dark h4 font-weight-bold" %></span>
+ </div>
+  
  
+ 
+ <div class="row justify-content-around">
+   <div class="col-sm-5">
+    <span class="login_button"><%= link_to raw("インタビュー作成は<br/>ログインして下さい"), mypage_path,class: "text-dark" %></span>
+   </div>
+   <div class="col-sm-5">
+    <span class="search_button"><%= link_to raw("インタビュー検索へ<br/>(登録不要)"),search_path,class: "text-dark" %></span>
+   </div>
+ </div>
+ </body>
 
 
-<div class="row justify-content-around">
-  <div class="col-sm-3">
-   <span class="login_button"><%= link_to raw("インタビュー作成は<br/>ログインしてください"), mypage_path,class: "text-dark" %></span>
-  </div>
-  <div class="col-sm-3">
-   <span class="search_button"><%= link_to raw("インタビュー検索へ<br/>(登録不要)"),search_path,class: "text-dark" %></span>
-  </div>
-</div>
+<footer class="fixed-bottom">
+ <p class="copyright  text-center text-danger">Copyright &copy; YOUR INSIDE</p>
+</footer>
 
-
-</body>
-
-
-<footer>
-   <p class="copyright  text-center text-danger">Copyright &copy; YOUR INSIDE</p>
- </footer>
-
-</html>
 
