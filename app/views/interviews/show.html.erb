@@ -122,7 +122,7 @@
   <p class="text-danger">Q9,ありがとうございます。とても素晴らしいですね。では、残念ながらそろそろお時間ですので、最後にこれを読んでる読者に向けて、
   <%= @user.name %>さんの演奏や歌が実際に聴けるサイトのURLや今後の活動方針について、何か伝えておきたいことがあればお願い致します。</P>
  </div>
-  <%= @interview.answer_9 %>
+  <%= text_url_to_link(h(@interview.answer_9)).html_safe %>
 </div>  
 
   
