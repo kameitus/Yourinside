@@ -19,7 +19,7 @@
       <tr><td>[ジャンル]  <%= @user.category %></td></tr>
       <tr><td><span class="text-danger">[検索用コメント]</span><br/><%= @user.comment %></td></tr>
     </table>
-   
+    <p class="card text-center"><%= @user.name %>さんの登録したSNS一覧</p>
     <div class="row">
      <% if @user.twitter? %>  
       <%= link_to @user.twitter ,target: :_blank,class:"btn btn-primary ml-2" do %>

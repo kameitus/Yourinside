@@ -132,22 +132,27 @@
  </div>
 </div>
   
-
+<div class="card bg-light mb-5">
  <% if @user.twitter? || @user.facebook? || @user.instagram? %> 
- <div class="card bg-light mb-5">
   <h4 class="text-danger h5 text-center"><%= @user.name %>さんに声をかけてみたいと思った方は、こちらのSNS リンクから<%= @user.name %>さんへ連絡してみましょう！</h3>
+ <% end %> 
   <div class="row justify-content-center">
+ <% if @user.twitter? %> 
    <%= link_to @user.twitter ,target: :_blank,class:"btn btn-primary ml-2" do %>
     <i class="fab fa-twitter"></i><h6>Twitter</h6>
    <% end %>
+ <% end %>
+ <% if @user.facebook? %> 
    <%= link_to @user.facebook,target: :_blank, class: "btn btn-success ml-2" do %>
     <i class="fab fa-facebook-square"></i><h6>Facebook</h6>
    <% end %>
+ <% end %>
+ <% if @user.instagram? %> 
    <%= link_to @user.instagram, target: :_blank,class: "btn btn-secondary ml-2" do%>
     <i class="fab fa-instagram"></i><h6>Instagram</h6>
    <% end %>
+ <% end %> 
   </div>
- <% end %>
 </div>
 
  <div class="row justify-content-center">

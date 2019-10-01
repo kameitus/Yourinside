@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-before_action :require_user_logged_in, only:[:show,:update,:destroy,:praises,:be_praises]
+before_action :require_user_logged_in, only:[:show,:edit,:update,:destroy,:praises,:be_praises]
+before_action :correct_user, only: [:edit,:update,:destroy]
 
 #検索一覧
   def index
@@ -34,7 +35,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy,:praises,:be
   
 #プロフィール変更ページ  
   def edit
-   @user = current_user
+    @user = current_user
   end
   
 #プロフィール更新実行
@@ -45,7 +46,7 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy,:praises,:be
       redirect_to mypage_url
     else
       flash[:danger] = "プロフィール更新に失敗しました"
-      render :show
+      render "edit"
     end
   end
   
@@ -73,6 +74,14 @@ before_action :require_user_logged_in, only:[:show,:update,:destroy,:praises,:be
 
 
   private
+  
+  def correct_user
+    @user = User.find_by(id: params[:id])
+    if @user.id != @current_user.id
+      flash[:danger] = "違うユーザーのMyページは編集できません"
+      redirect_to mypage_path
+    end
+  end
 
   def user_params
    params.require(:user).permit(

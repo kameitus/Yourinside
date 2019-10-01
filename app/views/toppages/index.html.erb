@@ -10,17 +10,29 @@
 
 
  <div class="mt-5 row justify-content-center">
+  <% if logged_in? %>
+   <span class="sample_button"><%= link_to "サンプルインタビューをチェック", interview_path(id: 1),class: "text-dark h5 font-weight-bold" %></span>
+  <% else %>
    <span class="sample_button"><%= link_to "まずはサンプルをチェック！", interview_path(id: 1),class: "text-dark h5 font-weight-bold" %></span>
+  <% end %> 
  </div>
   
  
  
  <div class="row justify-content-around">
    <div class="col-sm-5">
+   <% if logged_in? %>
+    <span class="login_button"><%= link_to raw("インタビューを作成する<br/>（Myページへ）"), mypage_path,class: "text-dark" %></span>
+   <% else %>
     <span class="login_button"><%= link_to raw("インタビュー作成は<br/>ログインして下さい"), mypage_path,class: "text-dark" %></span>
+   <% end %>
    </div>
    <div class="col-sm-5">
+   <% if logged_in? %>
+    <span class="search_button"><%= link_to raw("インタビュー検索へ<br/>"),search_path,class: "text-dark" %></span>
+   <% else %>
     <span class="search_button"><%= link_to raw("インタビュー検索へ<br/>(登録不要)"),search_path,class: "text-dark" %></span>
+   <% end %>
    </div>
  </div>
  </body>
