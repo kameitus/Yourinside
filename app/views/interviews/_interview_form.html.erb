@@ -219,9 +219,9 @@
  </div>
    
  
-<div class="card bg-light mb-5">
- <% if @user.twitter? || @user.facebook? || @user.instagram? %> 
-  <h4 class="text-danger h5 text-center"><%= @user.name %>さんの登録したSNSリンクはこちらに表示されます(URLに誤りが無いか確認してください)</h3>
+ 
+ <% if @user.twitter? || @user.facebook? || @user.instagram? %>
+  <h4 class="text-danger bg-light h5 text-center "><%= @user.name %>さんの登録したSNSリンクはこちらに表示されます(URLに誤りが無いか確認してください)</h3>
  <% end %> 
   <div class="row justify-content-center">
  <% if @user.twitter? %> 
@@ -240,15 +240,14 @@
    <% end %>
  <% end %> 
   </div>
-</div>
 
    <% if @interview.user_id? %>
     <div class="row justify-content-center mt-5 mb-5">
-     <%= f.submit "インタビューを更新します", class:"btn btn-info mb-5 px-5 py-3 font-weight-bold"%>
+     <%= f.submit "インタビューを更新します", class:"btn btn-info mb-5 px-5 py-3 font-weight-bold" %>
     </div>
-  <% else %>
+   <% else %>
     <div class="row justify-content-center mt-5 mb-5">
-     <%= f.submit "インタビューを作成します", class:"btn btn-info mb-5 px-5 py-3 font-weight-bold"%>
+     <%= f.submit "インタビューを作成します", class:"btn btn-info mb-5 px-5 py-3 font-weight-bold" %>
     </div>
-  <% end %>
+   <% end %>
 <% end %>

@@ -34,7 +34,7 @@ class ItemUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-  process :resize_to_limit => [700, 700] # 任意でリサイズの制限
+  process :resize_to_limit => [400, 350,"Center"] # 任意でリサイズの制限
 
   # 保存する画像の種類をサイズ別に設定
   version :standard do

@@ -126,14 +126,16 @@
 </div>  
 
   
-<div class="card mt-5 mb-5">
- <div class="card-header">
-  <p class="text-danger h4">これでインタビューは終了となります。本日はお忙しい中、ありがとうございました!</p>
+
+ <div class="card mt-5 mb-5">
+  <div class="card-header">
+   <p class="text-danger h4">これでインタビューは終了となります。本日はお忙しい中、ありがとうございました!</p>
+  </div>
  </div>
-</div>
-  
-<div class="card bg-light mb-5">
+
+
  <% if @user.twitter? || @user.facebook? || @user.instagram? %> 
+<div class="card bg-light mt-5 mb-5">
   <h4 class="text-danger h5 text-center"><%= @user.name %>さんに声をかけてみたいと思った方は、こちらのSNS リンクから<%= @user.name %>さんへ連絡してみましょう！</h3>
  <% end %> 
   <div class="row justify-content-center">
