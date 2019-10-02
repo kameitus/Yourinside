@@ -1,4 +1,4 @@
-<%= form_with model: @interview,local: true  do |f| %>
+<%= form_with model: interview,local: true do |f| %>
  <%= render 'layouts/error_messages', model: f.object %>
  <div style="margin-top:100px;">
    <div class="field">
@@ -221,21 +221,22 @@
  
  
  <% if @user.twitter? || @user.facebook? || @user.instagram? %>
-  <h4 class="text-danger bg-light h5 text-center "><%= @user.name %>さんの登録したSNSリンクはこちらに表示されます(URLに誤りが無いか確認してください)</h3>
+  <h4 class="text-danger bg-light h5 text-center "><%= @user.name %>さんの登録したSNSリンクはこちらに表示されます。リンク先が正しいか確認してください。</h3>
+  <%= link_to "リンク先が正しくない場合はこちらで修正してください",edit_user_path(@user), target: :_blank,class:"btn btn-warning mb-2" %>
  <% end %> 
   <div class="row justify-content-center">
  <% if @user.twitter? %> 
-   <%= link_to @user.twitter ,target: :_blank,class:"btn btn-primary ml-2" do %>
+   <%= link_to ("https://twitter.com/" + @user.twitter) ,target: :_blank,class:"btn btn-primary ml-2" do %>
     <i class="fab fa-twitter"></i><h6>Twitter</h6>
    <% end %>
  <% end %>
  <% if @user.facebook? %> 
-   <%= link_to @user.facebook,target: :_blank, class: "btn btn-success ml-2" do %>
+   <%= link_to ("https://www.facebook.com/" + @user.facebook),target: :_blank, class: "btn btn-success ml-2" do %>
     <i class="fab fa-facebook-square"></i><h6>Facebook</h6>
    <% end %>
  <% end %>
  <% if @user.instagram? %> 
-   <%= link_to @user.instagram, target: :_blank,class: "btn btn-secondary ml-2" do%>
+   <%= link_to ("https://www.instagram.com/" + @user.instagram), target: :_blank,class: "btn btn-secondary ml-2" do%>
     <i class="fab fa-instagram"></i><h6>Instagram</h6>
    <% end %>
  <% end %> 

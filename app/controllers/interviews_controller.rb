@@ -18,7 +18,7 @@ before_action :correct_user, only: [:edit,:update,:destroy]
   
 #インタビュー編集  
   def edit
-    @user = User.find_by(id: @interview.user_id)
+    @user = User.find_by(id: @interview.user_id )
   end
 
   
@@ -31,7 +31,7 @@ before_action :correct_user, only: [:edit,:update,:destroy]
        redirect_to interview_url(@interview.id)
      else
        flash[:danger] = "インタビューの投稿に失敗しました"
-       render "new"
+       render :new
      end
   end
   
@@ -43,7 +43,8 @@ before_action :correct_user, only: [:edit,:update,:destroy]
       redirect_to @interview
     else
       flash.now[:danger] = "インタビューの更新に失敗しました"
-      render :new
+      @user = current_user
+      render :edit
     end
   end
   

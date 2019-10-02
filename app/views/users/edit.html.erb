@@ -67,14 +67,14 @@
     <li><%= f.label :comment, "検索用コメント(50文字まで)", class:"text-danger bg-light" %><br/>
         <%= f.text_area :comment %></li>
     
-    <p class="row text-danger bg-light mt-4 mb-2 h5">SNSアカウントもアピールしたい方は<br/>指定のURLを登録してください<br/>（登録後にリンクボタンが表示されます)</p>    
-    <li><%= f.label :twitter, "Twitter URL" ,class:"text-danger bg-light"%>
+    <p class="row text-danger bg-light mt-4 mb-2 h5">SNSアカウントもアピールしたい方はお持ちの【アカウント名】を登録して下さい<br/>（登録後にリンクボタンが表示されます)</p>    
+    <li><%= f.label :twitter, "twitter.com/" ,class:"text-danger bg-light mb-0"%>
         <%= f.text_field :twitter %></li>
     
-    <li><%= f.label :facebook, "Facebook URL",class:"text-danger bg-light" %>
+    <li><%= f.label :facebook, "facebook.com/",class:"text-danger bg-light mb-0 mt-3" %>
         <%= f.text_field :facebook %></li>
         
-    <li><%= f.label :instagram, "Instagram URL",class:"text-danger bg-light" %>
+    <li><%= f.label :instagram, "instagram.com/",class:"text-danger bg-light mb-0 mt-3" %>
         <%= f.text_field :instagram %></li>
      <div class="actions mt-4 ">
       <%= f.submit "プロフィール更新" ,class:"btn btn-primary btn-active"%>
