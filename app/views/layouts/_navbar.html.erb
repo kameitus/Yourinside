@@ -16,10 +16,12 @@
           <!--ログイン時メニュー-->
             <li class="nav-item"><%= link_to "Myページ",mypage_path,class: "nav-link" %></li>
             <li class="nav-item"><%= link_to "ログアウト",logout_path, method: :delete,class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "このサイトについて",about_path,class: "nav-link" %></li>
           <% else %>
             <!--ログアウト時メニュー-->
             <li class="nav-item"><%= link_to "ログイン",login_path,class: "nav-link" %></li>
             <li class="nav-item"><%= link_to "新規登録",signup_path,class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "このサイトについて",about_path,class: "nav-link" %></li>
           <% end %>
             
           </ul>

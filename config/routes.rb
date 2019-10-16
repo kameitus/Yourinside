@@ -12,12 +12,13 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-     get :praises
      get :be_praises
     end
   end
   
   resources :interviews, except:[:index]
   resources :greats, only:[:create,:destroy]
+  
+  get "about", to: "abouts#show"
 end
 

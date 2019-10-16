@@ -1,11 +1,14 @@
 <% users.each do |user| %>
  <% if user.icon? %>
   <%= link_to (cl_image_tag user.icon.url),interview_path(id: user.interview.id) %>
- <% else %>
-  <%= link_to (cl_image_tag("default.png_m8owuo.png")),interview_path(id: user.interview.id) %>
- <% end %>  
   <div class="card font-weight-bold h4 mb-5">
-  　<p><%= user.name %>『<%= user.interview.title %>』</p>
+   <p>名前：<%= user.name %></p>
   </div>
+ <% else %>
+  <%= link_to (cl_image_tag("default.png_m8owuo.png")) %>
+  <div class="card font-weight-bold h4 mb-5">
+   <p>名前：<%= user.name %></p>
+  </div>
+ <% end %>  
 <% end %>
 <%= paginate users %>
