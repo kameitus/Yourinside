@@ -26,7 +26,7 @@ before_save { self.email.downcase! }
   
   has_one :interview, dependent: :destroy
   
-  has_many :greats
+  has_many :greats, dependent: :destroy
   has_many :praises, through: :greats, source: :great
   has_many :reverses_of_great, class_name: "Great", foreign_key: "great_id"
   has_many :be_praises, through: :reverses_of_great, source: :user
