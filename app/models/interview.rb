@@ -11,7 +11,7 @@ class Interview < ApplicationRecord
   validates :answer_9, presence: true
   validates :title, presence: true,length: { maximum: 50 }
   
-  belongs_to :user,optional: true
+  belongs_to :user
   mount_uploader :photo, PhotoUploader
   mount_uploader :gakki, GakkiUploader
   mount_uploader :item, ItemUploader
