@@ -40,7 +40,7 @@
   <p class="text-danger">Q1,はじめまして<%= @user.name %>さん。本日はお会いできて光栄です。まず、初めての読者に向けて〇〇さんの簡単な自己紹介をお願い致します。</P>
  </div>
  <div class="card-body">
-   <%= @interview.answer_1 %>
+   <%= text_url_to_link(h(@interview.answer_1)).html_safe %>
  </div>
 </div>
  
@@ -48,14 +48,14 @@
  <div class="card-header">
   <p class="text-danger">Q2,ありがとうございます。さっそくインタビューに入りたいと思います。まず、<%= @user.name %>さんの好きな音楽、バンドなど教えて頂けますか？</p>
  </div>
-   <%= @interview.answer_2 %>
+   <%= text_url_to_link(h(@interview.answer_2)).html_safe %>
 </div>
 
 <div class="card mt-5">
  <div class="card-header">
   <p class="text-danger">Q3、なるほど。では、その中で特に好きなアルバムと、それを選んだ理由を教えて頂けますか？</p>
  </div>
-  <%= @interview.answer_3 %>
+  <%= text_url_to_link(h(@interview.answer_3)).html_safe %>
 </div>  
   
 <div class="card mt-5">
@@ -64,7 +64,7 @@
    ギターの音作りを中心に聴くなど人それぞれあると思います。
    一緒に演奏する人は、そういった部分も実は気になってる点ではないかと思うのでお伺いしたいのですが。</p>
  </div>
-  <%= @interview.answer_4 %>
+  <%= text_url_to_link(h(@interview.answer_4)).html_safe %>
 </div>
 
 <div class="card mt-5">
@@ -73,7 +73,7 @@
   この場合、曲やバンドが好きじゃなくても構わないので｢音質｣そのものが好きなアルバムです。
   レコーディングやライブをする時に、こういった所の相性も重要だと思います。</p>
  </div>
-  <%= @interview.answer_5 %>
+  <%= text_url_to_link(h(@interview.answer_5)).html_safe %>
 </div> 
 
 <div class="card mt-5">
@@ -81,7 +81,7 @@
   <p class="text-danger">Q6,ありがとうございます。なんとなく<%= @user.name %>さんの音楽に対する｢良い音｣が見えてきました。では、使用楽器などあれば見せて頂けませんか？
    それと、影響を受けたプレーヤーがいれば教えて下さい。</p>
  </div>
-  <%= @interview.answer_6 %>
+  <%= text_url_to_link(h(@interview.answer_6)).html_safe %>
 </div> 
 
 <div class="row justify-content-center mt-5">
@@ -98,7 +98,7 @@
    人によっては｢このバンドTを着てるやつは信用できる！｣みたいなアンテナがあると思うので、そこに訴えかける何か
    紹介できるものがありましたら見せて頂けますか？</P>
  </div>
- <%= @interview.answer_7 %> 
+ <%= text_url_to_link(h(@interview.answer_7)).html_safe %>
 </div>   
 
 <div class="row justify-content-center mt-5">
@@ -114,7 +114,7 @@
  <p class="text-danger">Q8,素晴らしいですね。きっと共鳴してくれる方がいらっしゃると思います。次に<%= @user.name %>さんの音楽観、
  今の方向性に繫がるようなライブの体験や映像作品などあれば教えて下さい。映像は音楽以外のものでも構いません。</P>
  </div> 
-  <%= @interview.answer_8 %>
+  <%= text_url_to_link(h(@interview.answer_8)).html_safe %>
 </div>  
 
 <div class="card mt-5">
