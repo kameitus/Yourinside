@@ -1,6 +1,16 @@
 <% users.each do |user| %>
- <% if user.icon? %>
-  <%= link_to (cl_image_tag user.icon.url),interview_path(id: user.interview.id) %>
+ <% if user.icon? && user.interview %>
+  <%= link_to (cl_image_tag user.icon.url), interview_path(id: user.interview.id) %>
+  <div class="card font-weight-bold h4 mb-5">
+   <p>名前：<%= user.name %></p>
+  </div>
+ <% elsif user.icon? %>
+  <%= link_to (cl_image_tag user.icon.url) %>
+  <div class="card font-weight-bold h4 mb-5">
+   <p>名前：<%= user.name %></p>
+  </div>
+ <% elsif  user.interview %>
+  <%= link_to (cl_image_tag("default.png_m8owuo.png")), interview_path(id: user.interview.id) %>
   <div class="card font-weight-bold h4 mb-5">
    <p>名前：<%= user.name %></p>
   </div>
