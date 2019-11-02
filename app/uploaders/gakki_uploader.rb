@@ -27,8 +27,7 @@ class GakkiUploader < CarrierWave::Uploader::Base
    "default.png"
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
-  process resize_to_fill: [400, 350, "Center"]
-  
+  process :resize_to_limit => [400,350,"Center"] # 任意でリサイズの制限
 
   # 保存する画像の種類をサイズ別に設定
   version :standard do
